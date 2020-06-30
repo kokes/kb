@@ -47,6 +47,21 @@ https://mmcloughlin.com/posts/geohash-assembly
 
 - Writing assembly is tough, I'd never go that road. But I've just found out that even people proficient in assembly use tooling that helps build it. There's a Python tool and a Go tool, [here's a good introduction](https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share). The speaker also has a fun post about [absurd optimisations](https://mmcloughlin.com/posts/geohash-assembly).
 
+------------------------
+
+title: simdjson
+
+Dan @lemire's talk on the internals of simdjson from last year's QCon is finally on YouTube.
+
+It's a well paced talk, I really liked the simd tricks for integer parsing and the nibble stuff for tokenisation.
+
+https://www.youtube.com/watch?v=wlvKAT7SZIQ
+
+it has a transcript https://www.infoq.com/presentations/simdjson-parser/
+
+------------------------
+
+
 ### languages
 
 #### rust
@@ -144,7 +159,20 @@ I've been following the developments of WebAssembly a bit over the past few year
 
 ### internals
 
+#### algorithms
+
+4. MapReduce - one of the most influential data engineering papers in the past two decades - it directly lead to data processing in Hadoop and later to Spark, both of which leverage these ideas of horizonally scaling computation on a bunch of nodes in a fault tolerant way. https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
+
+
 #### architecture
+
+The Amazon Builders’ Library is a nice resource, I hope they add more content over time. Here’s a bit of it in video form (I liked the shuffle sharding explanation).
+
+It has text form, but I only watched this.
+
+https://www.youtube.com/watch?v=sKRdemSirDM&feature=emb_logo
+
+---
 
 It's not all just about velocity, features and such, it's also about good design. [Here's a Google talk](https://www.youtube.com/watch?v=bmSAYlu0NcY&feature=share) by John Ousterhout about that very topic. He also [has a new book about that](https://twitter.com/johnousterhout/status/989260683836506112?lang=en), it's on my todo list.
 
@@ -297,6 +325,12 @@ https://segment.com/blog/exactly-once-delivery/
 
 ------------------------
 
+#### streaming
+
+read-level deduplication, cool arch
+
+https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
+
 #### pandas
 
 - One of the most cited issues with pandas has been its inability to contain integer series with nulls. This lack of support is caused by the treatment of nulls in series - pandas uses sentinel values rather than a separate bitarray. Here is [a good overview of what's changed recently](https://www.youtube.com/watch?v=gxvTVxlvH9w) by Jeff Reback, pandas' long time maintainer.
@@ -332,6 +366,23 @@ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,
     https://kokes.github.io/blog/2020/06/22/apache-spark-pyspark-s3.html
 
 #### databases
+
+SQL statements don’t start with a select. Seems kinda obvious in retrospect, super clear and informative in any case.
+SQL queries don't start with SELECT
+Okay, obviously many SQL queries do start with SELECT (and actually this post is only about SELECT queries, not INSERTs or anything). But! Yesterday I was working on an explanation of window functi...
+jvns.ca
+
+------------------------
+
+title: Taking DuckDB for a spin
+
+https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html
+
+------------------------
+
+1. Dynamo paper - one that defined a hugely scalable key-value store, it talks about the topology of the system, how it achieves its level of consistency, scale etc. http://courses.cse.tamu.edu/caverlee/csce438/readings/dynamo-paper.pdf
+2. Bigtable - one of the first "NewSQL" systems - hugely scalable relational systems, usually of denormalised tables and using SQL. Since horizontal scale has been a long-standing issue with classical RDBMS, these NewSQL systems try to forgo some of the guarantees of RDBMS (e.g. foreign keys or transaction), but offer much better scale. https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
+
 
 6. Spanner - this scalable database by Google has one specific feature - it not only scales, but it does so while not sacrificing as much as Bigtable - it allows for transactions and other synchronisation principles, which are hard to implement in a distributed system. It does so using special kinds of clocks to keep time across geographies (it even uses GPS and other hardware help). It's amazing how you can keep track of time in these hugely unreliable systems and I can recommend one more talk on this topic (by Kavya Joshi, just search on youtube for her name + "clocks"). https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf
 
@@ -434,6 +485,42 @@ title: Fuzzy search
 
 ------------------------
 
+### web dev
+
+------------------------
+
+https://www.youtube.com/watch?v=AdNJ3fydeao&feature=share
+
+Sonrefreshing to dump shadow dom
+
+------------------------
+
+
+------------------------
+
+title: The Ethics of Web Performance
+
+https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/
+
+------------------------
+
+chrome extensions can block rendering quite a bit
+    https://www.debugbear.com/blog/2020-chrome-extension-performance-report
+
+------------------------
+
+title: Cost of JS
+
+https://www.youtube.com/watch?v=X9eRLElSW1c
+
+Don't measure performance just on iPhones and Pixel phones.
+
+Don't ship large bundles.
+
+Prefetch React on the first screen, but don't block the main thread.
+
+------------------------
+
 ## ops
 
 ### why
@@ -471,8 +558,20 @@ Kubernetes failure stories github
 
 - “If you’re listening to this podcast and you’re not using containers and you feel bad about it... please don’t.” Another great episode one realises that you don't have to be at the cutting edge of technology to function just fine. https://hanselminutes.com/645/container-catharsis-with-laura-frank-tacho
 
+### cloud, vms and such
+
+I define 1 DOD as the computational power of one $5/mo @digitalocean droplet, and I refuse to rely on any server technology that requires more than 1 DOD to be useful.
+
+https://twitter.com/artemchistyakov/status/953435147034152960
 
 ## meta
+
+### learning
+
+There is a great resource for technical insight, one that is more in depth than most blog posts, but shorter than books - technical papers! These can be in an academic setting, proceedings for a conference, or purely just a business sharing their insight about a given topic.
+
+You can find thousands of papers on various topics, I tried to distill a short list of papers most relevant to some of the work we do. Some of these are real classics, some are a bit more esoteric.
+
 
 ### oss
 - A good talk [on the basics of open source contribution](https://www.youtube.com/watch?v=JhPC6_rO08s) - what to do, how to get that first pull request submitted etc. Paul Ganssle is the maintainer of [dateutil](https://dateutil.readthedocs.io/en/stable/) (its parser is superb) and [a contributor to CPython](https://mail.python.org/pipermail/python-committers/2019-February/006567.html).
@@ -488,6 +587,19 @@ Reflections on 10 years of open source developments. I recommend the blog as a w
 ### team work
 
 I usually like more down to earth speakers, but [Jesse Anderson's notes on big data teams](https://www.youtube.com/watch?v=VkeleGIUSM8) ring true more often than not. He talks a lot about composition of teams, where things can go wrong, how you need veterans, how whiteboards can save you months etc.
+
+---
+
+I don’t watch too many soft skill talks, perhaps I should. This was a really clear overview of dealing with managers. The speaker repeatedly recommended Camille Fournier’s book, which has been sitting on my shelf way too long.
+
+https://www.youtube.com/watch?v=INr31JkHlT0&feature=emb_logo
+
+
+### debugging
+
+tmux synchronised panes
+https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
+
 
 ### legacy software
 
@@ -524,6 +636,10 @@ chandler carruth
 
 ------------------------
 
+"I can deploy while in warrior three."
+
+https://www.youtube.com/watch?v=Mz3JeYfBTcY&feature=share
+
 
 ## version control
 
@@ -553,42 +669,6 @@ You need to understand git internals. THis is an epic talk. https://www.youtube.
 
 ------------------------
 
-## web dev
-
-------------------------
-
-https://www.youtube.com/watch?v=AdNJ3fydeao&feature=share
-
-Sonrefreshing to dump shadow dom
-
-------------------------
-
-
-------------------------
-
-title: The Ethics of Web Performance
-
-https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/
-
-------------------------
-
-chrome extensions can block rendering quite a bit
-    https://www.debugbear.com/blog/2020-chrome-extension-performance-report
-
-------------------------
-
-title: Cost of JS
-
-https://www.youtube.com/watch?v=X9eRLElSW1c
-
-Don't measure performance just on iPhones and Pixel phones.
-
-Don't ship large bundles.
-
-Prefetch React on the first screen, but don't block the main thread.
-
-------------------------
-
 ## software
 
 ### ides
@@ -599,6 +679,14 @@ Prefetch React on the first screen, but don't block the main thread.
 There are tons of useful extensions for Jupyter Lab, check them out. https://youtu.be/3pdrzhny9Lc
 
 ------------------------
+
+zeppelin better for long running jobs
+jupyter better for development (line numbers, autocomplete, help, shortcuts, ...)
+zeppelin better for apache stuffs
+zeppelin better for combining runtimes
+jupyter more lightweight
+
+----
 
 ### cli
 Git
@@ -1174,6 +1262,10 @@ kafka definitive guide
 
 ------------------------
 
+title: hash storage issues
+
+screenshot!
+
 
 
 ------------------------
@@ -1186,13 +1278,6 @@ https://www.youtube.com/watch?v=NF0CY43GYKU&feature=share
 
 https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share
 
-------------------------
-
-------------------------
-
-https://twitter.com/pndrej/status/1244696768211816448?s=12
-
-------------------------
 
 ------------------------
 
@@ -1239,6 +1324,52 @@ kokeso:milion ondrej.kokes$ cat data/pages/2018-01-19.json | jq '. | select(.nam
 etc.
 
 ------------------------
+
+------------------------
+
+------------------------
+
+title: Dear new developers
+
+not about linked lists, but about collaboration, jargon and workflows
+
+TDD, red green refactor
+Yak shaving
+Coverage
+Code reviews
+Understanding jokes - naming things, off by one, cache invalidation, xkcd (compiling), testing in production
+DRY
+Big O
+FOMO
+HN
+TDD
+SPA
+CAP
+
+floats vs decimals (and integers) - not just in databases, this is useful in general, two's complement as well
+
+paralelisation primitives - threading, lock/mutex contention, ...? amdahls law
+
+bytes and binary
+
+Early exits
+
+somebody files a bug with your tiny library - you may be urged to fix it right away, but first file a test, run the suite, confirm it's red - then fix it and rerun the suite - you've now not only fixed it, but you're also safeguarded against a regression - somebody might refactor your code and it might exhibit this bug again
+   **bug reports should in most cases result in new tests**
+
+Git and VCS in general, git vs github
+
+Together with jokes put into a category of jargon/beer topics/...
+Tabs, spaces
+Vim, emacs
+
+package managers
+
+CPU cache?
+https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
+
+-----
+
 
 ------------------------
 
@@ -1779,49 +1910,7 @@ https://www.youtube.com/watch?v=dRaRKob-lRQ
 
 ------------------------
 
-------------------------
 
-title: simdjson
-
-Dan 
-@lemire
-'s talk on the internals of simdjson from last year's QCon is finally on YouTube.
-
-It's a well paced talk, I really liked the simd tricks for integer parsing and the nibble stuff for tokenisation.
-
-https://www.youtube.com/watch?v=wlvKAT7SZIQ
-
-it has a transcript https://www.infoq.com/presentations/simdjson-parser/
-
-------------------------
-
-------------------------
-
-title: lead scoring using open data
-
-zdroje:
-- wikidata
-- linkedin (od 2015 jen pro partnery)
-- firebase (EOL)
-- facebook? mozna nejlepsi (likes jako aproximace dulezitosti) CURL /wetpaint?fields=name,fan_count,website,category,about,location; wetpaint/likes?fields=name,website,about; vyfiltruj pages, ktery maj path v URL
-- yelp? (licence! plus doesnt have websites)
-- google knowledge?
-- foursquare etc.
-- crunchbase? (paid, ale maj 2013 snapshot) https://github.com/mtwilliams/crunchbase-in-2013
-
-careful about .edu
-
-linkedin api dovoluje jen vlastni stranky, pokud teda nejsi v Partner Program, kterej muze scrapovat celou stranku
-
-SELECT ?business_enterprise ?business_enterpriseLabel ?official_websiteLabel ?employees WHERE {
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en,de". } # TODO: list all languages
-  ?business_enterprise wdt:P31 wd:Q4830453.
-  ?business_enterprise wdt:P856 ?official_website.
-  ?business_enterprise wdt:P1128 ?employees.
-}
-LIMIT 200
-
-------------------------
 
 ------------------------
 
@@ -1887,163 +1976,10 @@ Pipeline - curl wikidata, gunzip, head, sed, jq
 
 ------------------------
 
-------------------------
 
-title: Taking DuckDB for a spin
-
-https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html
-
-------------------------
 
 ------------------------
 
 https://www.youtube.com/watch?v=3AxSwCC7I4s&feature=share
 
 Never knew this whole area even existed as a thing
-
-------------------------
-
-------------------------
-
-title: Dear new developers
-
-not about linked lists, but about collaboration, jargon and workflows
-
-TDD, red green refactor
-Yak shaving
-Coverage
-Code reviews
-Understanding jokes - naming things, off by one, cache invalidation, xkcd (compiling), testing in production
-DRY
-Big O
-FOMO
-HN
-TDD
-SPA
-CAP
-
-floats vs decimals (and integers) - not just in databases, this is useful in general, two's complement as well
-
-paralelisation primitives - threading, lock/mutex contention, ...? amdahls law
-
-bytes and binary
-
-Early exits
-
-somebody files a bug with your tiny library - you may be urged to fix it right away, but first file a test, run the suite, confirm it's red - then fix it and rerun the suite - you've now not only fixed it, but you're also safeguarded against a regression - somebody might refactor your code and it might exhibit this bug again
-   **bug reports should in most cases result in new tests**
-
-Git and VCS in general, git vs github
-
-Together with jokes put into a category of jargon/beer topics/...
-Tabs, spaces
-Vim, emacs
-
-package managers
-
-CPU cache?
-https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
-
-------------------------
-
-------------------------
-
-title: Tmux debugging
-
-https://twitter.com/pndrej/status/1271558852052467714?s=21
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=Mz3JeYfBTcY&feature=share
-
-I can deploy while in warrior three. 
-
-------------------------
-
-------------------------
-
-https://twitter.com/jietienming/status/1138131568554336259?s=12
-
-Psp volby
-
-------------------------
-
-------------------------
-
-title: programming for the underpowered
-
-https://twitter.com/artemchistyakov/status/953435147034152960
-
-------------------------
-
-------------------------
-
-title: zepp vs. jupy
-
-zeppelin better for long running jobs
-jupyter better for development (line numbers, autocomplete, help, shortcuts, ...)
-zeppelin better for apache stuffs
-zeppelin better for combining runtimes
-jupyter more lightweight
-
-------------------------
-
-------------------------
-
-title: Python talks
-
-raymond dicts https://www.youtube.com/watch?v=p33CVV29OG8
-
-------------------------
-
-------------------------
-
-title: Petabyte Scale Data Deduplication
-
-https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
-
-Never occured to me hou could dedupe on read. Fascinating. 
-
-------------------------
-
-https://twitter.com/pndrej/status/1246727700582150147?s=12
-
-------------------------
-
-------------------------
-
-title: hash storage issues
-
-screenshot!
-
-------------------------
-
-------------------------
-
-https://twitter.com/pndrej/status/1246378141200928768?s=12
-
-------------------------
-
-------------------------
-
-https://podcasts.apple.com/cz/podcast/the-changelog/id341623264?i=1000442071613
-
-------------------------
-
-------------------------
-
-title: Technical papers
-
-There is a great resource for technical insight, one that is more in depth than most blog posts, but shorter than books - technical papers! These can be in an academic setting, proceedings for a conference, or purely just a business sharing their insight about a given topic.
-
-You can find thousands of papers on various topics, I tried to distill a short list of papers most relevant to some of the work we do. Some of these are real classics, some are a bit more esoteric.
-
-1. Dynamo paper - one that defined a hugely scalable key-value store, it talks about the topology of the system, how it achieves its level of consistency, scale etc. http://courses.cse.tamu.edu/caverlee/csce438/readings/dynamo-paper.pdf
-2. Bigtable - one of the first "NewSQL" systems - hugely scalable relational systems, usually of denormalised tables and using SQL. Since horizontal scale has been a long-standing issue with classical RDBMS, these NewSQL systems try to forgo some of the guarantees of RDBMS (e.g. foreign keys or transaction), but offer much better scale. https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
-4. MapReduce - one of the most influential data engineering papers in the past two decades - it directly lead to data processing in Hadoop and later to Spark, both of which leverage these ideas of horizonally scaling computation on a bunch of nodes in a fault tolerant way. https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
-
-
-
-------------------------
