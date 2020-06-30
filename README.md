@@ -176,6 +176,18 @@ A very nice and clear explanation of [how maps are implemented in Go](https://da
 
 ------------------------
 
+
+------------------------
+
+title: Cuckoo
+
+‪Being a big fan of Bloom filters, I really enjoyed this paper on Cuckoo filters. They are better in many ways, one only has to be careful about insertion performance at high occupancy. https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf‬
+
+------------------------
+
+- I dislike all things Java/JVM, but I'm always astonished at Elasticsearch's performance. [In this video](https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share), Adrien Grand describes at length what sort of data structures and algorithms are used in Elasticsearch and Lucene.
+
+
 title: CRDT
 
 This short talk on CRDTs is not only good in terms of explaining the basics of conflict free data structures, but the speaker also highlights good UX in data applications, something that is grossly overlooked. https://www.youtube.com/watch?v=DEcwa68f-jY
@@ -199,11 +211,25 @@ https://www.youtube.com/watch?v=tjpncm3xTTc
 
 ------------------------
 
+title: Keeping time in distributed systems
+
+"Time is hard, man"
+
+Didn't know much about Google's TrueTime
+
+https://www.youtube.com/watch?v=BRvj8PykSc4
+
+------------------------
+
+------------------------
+
 ‪A Miroslav Šedivý pěkně popsal IANA a poukázal na hezký outliery - já znal jen Istanbul, takže jsem zas o trochu chytřejší. https://youtu.be/mHaz5laPyHE‬
 
 ------------------------
 
 #### parallelism
+
+5. Raft - how does one achieve consensus across a distributed system? Where do we keep the truth and how do we handle failures? Paxos used to be the answer, but it's a notoriously hard problem and this implementation was quite difficult to work with. Raft is a newer and simpler solution to this coordination problem and it's widely used in distributed systems. https://raft.github.io/raft.pdf
 
 ------------------------
 
@@ -244,6 +270,9 @@ I teach Python and I often struggle when explaining decorators, [this talk](http
 ### data
 
 #### architecture
+
+3. Kafka - message queues have a looong tradition in computer science, but they are usually thought of as ephemeral - messages come, get processed and get discarded. Kafka was the first major system where storing messages and replays were accounted for in its design. It created a whole new area of data processing, where the stream plays a more important role than storage (=database), because you can always recreate the latter from the former, but not vice versa. http://notes.stephenholiday.com/Kafka.pdf
+
 
 
 ------------------------
@@ -303,6 +332,25 @@ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,
     https://kokes.github.io/blog/2020/06/22/apache-spark-pyspark-s3.html
 
 #### databases
+
+6. Spanner - this scalable database by Google has one specific feature - it not only scales, but it does so while not sacrificing as much as Bigtable - it allows for transactions and other synchronisation principles, which are hard to implement in a distributed system. It does so using special kinds of clocks to keep time across geographies (it even uses GPS and other hardware help). It's amazing how you can keep track of time in these hugely unreliable systems and I can recommend one more talk on this topic (by Kavya Joshi, just search on youtube for her name + "clocks"). https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf
+
+------------------------
+
+title: modern sql
+
+It's all about the ethos - SQL is not about CRUD, it's about fairly advanced things.
+
+Markus Winand and his "you don't know SQL" presentation I always enjoy. He starts off with quite basic things, but always runs into weird features I haven't heard about.
+More Than a Query Language: SQL in the 21st Century by Markus Winand
+youtube.com
+Ondrej Kokes
+https://www.youtube.com/watch?v=MnEDHFOqqno
+·
+1s
+Like system versioning - I do it using triggers since Postgres doesn't support it natively, but it turns out, Postgres might be getting it soon! https://commitfest.postgresql.org/25/2316/
+
+------------------------
 
 ------------------------
 
@@ -461,7 +509,37 @@ https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f
 
 ------------------------
 
+### public speaking
+
+------------------------
+
+title: best speakers
+
+aphyr
+brian cantrill
+hoettinger
+godbolt
+ted malaska
+chandler carruth
+
+------------------------
+
+
 ## version control
+
+
+------------------------
+
+title: Write long commits
+
+https://fatbusinessman.com/2019/my-favourite-git-commit
+https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/
+https://tekin.co.uk/2019/02/a-talk-about-revision-histories
+
+it connects with longevity of things: code > commits >> jira >> slack
+
+------------------------
+
 
 git archive!!!
     sometimes I need to ship my git repo to an EC2 and tar -czf contains all sorts of crap (test data, .git, .env etc.). Git archive is a godsend
@@ -476,6 +554,23 @@ You need to understand git internals. THis is an epic talk. https://www.youtube.
 ------------------------
 
 ## web dev
+
+------------------------
+
+https://www.youtube.com/watch?v=AdNJ3fydeao&feature=share
+
+Sonrefreshing to dump shadow dom
+
+------------------------
+
+
+------------------------
+
+title: The Ethics of Web Performance
+
+https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/
+
+------------------------
 
 chrome extensions can block rendering quite a bit
     https://www.debugbear.com/blog/2020-chrome-extension-performance-report
@@ -495,6 +590,15 @@ Prefetch React on the first screen, but don't block the main thread.
 ------------------------
 
 ## software
+
+### ides
+
+
+------------------------
+
+There are tons of useful extensions for Jupyter Lab, check them out. https://youtu.be/3pdrzhny9Lc
+
+------------------------
 
 ### cli
 Git
@@ -586,7 +690,6 @@ date: 2019-07-20T07:03:53+02:00
 draft: false
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -600,7 +703,6 @@ title: "Assorted tech links #3"
 date: 2019-11-09T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -613,7 +715,6 @@ title: "Assorted tech links #4"
 date: 2020-05-27T07:03:55+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -627,7 +728,6 @@ title: "Assorted tech links #5"
 date: 2019-09-09T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -640,7 +740,6 @@ title: "Assorted tech links #6"
 date: 2019-09-30T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -655,7 +754,6 @@ title: "Assorted tech links #7"
 date: 2019-10-14T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -669,21 +767,18 @@ title: "Assorted tech links #8"
 date: 2019-11-11T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
 - I love to listen to data architecture descriptions and I love it ever more when the bottom line is: we just use Postgres (usually heavily partitioned). There are a few podcast episodes on these, there's [Outlier](https://softwareengineeringdaily.com/2018/06/29/data-engineering-automation-with-mike-kim/), [Pex](https://softwareengineeringdaily.com/2018/06/22/video-search-with-rasty-turek/) or [Heap](https://www.dataengineeringpodcast.com/heap-with-dan-robinson-episode-36/).
 - I can highly recommend all of Kyle Kingsbury's talks. He built this testing suite, Jepsen, which verifies data stores and checks them for consistency guarantees, data loss, split brain, dirty reads, ... Oh and [this talk](https://www.youtube.com/watch?v=tRc0O9VgzB0) includes zings like “Turns out the write ahead log wasn’t write ahead.” If you're not fluent in this terminology, I can highly recommend [Martin Kleppmann's book](http://dataintensive.net/).
 - A great talk by the creator of Node.js. [What he regrets and what he’d do differently.](https://youtu.be/M3BM9TB-8yA)
-- I dislike all things Java/JVM, but I'm always astonished at Elasticsearch's performance. [In this video](https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share), Adrien Grand describes at length what sort of data structures and algorithms are used in Elasticsearch and Lucene.
 
 ---
 title: "Assorted tech links #9"
 date: 2019-12-02T07:03:53+02:00
 ---
 
-I do quite a bit of reading and watching of tech talks and since I often forget things, I decided to turn this into a sort of bookmarking service.
 
 ---
 
@@ -824,18 +919,7 @@ https://danluu.com/postmortem-lessons/
 
 ------------------------
 
-------------------------
 
-title: best speakers
-
-aphyr
-brian cantrill
-hoettinger
-godbolt
-ted malaska
-chandler carruth
-
-------------------------
 
 ------------------------
 
@@ -912,22 +996,7 @@ https://medium.com/tinder-engineering/geosharded-recommendations-part-1-sharding
 
 ------------------------
 
-------------------------
 
-title: modern sql
-
-It's all about the ethos - SQL is not about CRUD, it's about fairly advanced things.
-
-Markus Winand and his "you don't know SQL" presentation I always enjoy. He starts off with quite basic things, but always runs into weird features I haven't heard about.
-More Than a Query Language: SQL in the 21st Century by Markus Winand
-youtube.com
-Ondrej Kokes
-https://www.youtube.com/watch?v=MnEDHFOqqno
-·
-1s
-Like system versioning - I do it using triggers since Postgres doesn't support it natively, but it turns out, Postgres might be getting it soon! https://commitfest.postgresql.org/25/2316/
-
-------------------------
 
 ------------------------
 
@@ -1026,13 +1095,6 @@ or you can reach for the top - prime numbers (my almost failing uni), decipherin
 
 ------------------------
 
-------------------------
-
-title: Cuckoo
-
-‪Being a big fan of Bloom filters, I really enjoyed this paper on Cuckoo filters. They are better in many ways, one only has to be careful about insertion performance at high occupancy. https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf‬
-
-------------------------
 
 ------------------------
 
@@ -1113,13 +1175,6 @@ kafka definitive guide
 ------------------------
 
 
-------------------------
-
-title: Storing UTC is not a silver bullet
-
-https://codeblog.jonskeet.uk/2019/03/27/storing-utc-is-not-a-silver-bullet/
-
-------------------------
 
 ------------------------
 
@@ -1450,87 +1505,9 @@ Kafka talk
 
 ------------------------
 
-------------------------
 
-title: The Ethics of Web Performance
 
-https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/
 
-------------------------
-
-------------------------
-
-title: sessions sql
-
-with sessions as (
-	select
-		dim_event_on,
-		dim_acl_user_id, dim_acl_account_id,
-		dim_mixpanel_people_distinct_id,
-		(dim_event_on - lag(dim_event_on) over (partition by dim_mixpanel_people_distinct_id order by dim_event_on)) as sesslen
-	from product.fact__mixpanel_event
-	where 1=1
-		and dim_project_name = 'SBKS SUITE'
-		and dim_event_on >= '2017-10-01'
-		and dim_event_name <> 'Finished Viewing Page'
-)
-
-select
-	date(dim_event_on),
-	dim_acl_user_id as user_id, (us.first_name || us.last_name) as user_name,
-	dim_acl_account_id as account_id, acc.name as account_name, acc.salesforce_identifier,
-	round(extract(epoch from sum(case when sesslen > interval '30 minutes' then null else sesslen end))/60.0, 2) as minutes,
-	sum(case when sesslen is null then 1 when sesslen > interval '30 minutes' then 1 else 0 end) as sessions,
-
-	count(*) as events
-
-from sessions s
-inner join acl.fact__account acc
-	on s.dim_acl_account_id = acc.account_identifier
-	and acc.is_deleted is false
-    and acc.is_internal is false
-inner join (
-	select distinct user_identifier, first_name, last_name
-	from acl.fact__user
-	where is_deleted is false
-) us on us.user_identifier = s.dim_acl_user_id
-
--- where 1=1
--- and dim_mixpanel_people_distinct_id = '1012418_234901'
-
-group by date(dim_event_on), dim_acl_user_id, dim_acl_account_id, acc.name, us.first_name, us.last_name, acc.salesforce_identifier
-order by dim_acl_account_id, dim_acl_user_id, date(dim_event_on)
-limit 10000000
-
--- select
--- *
--- from sessions s
--- inner join acl.fact__account acc
--- 	on s.dim_acl_account_id = acc.account_identifier
--- 	and acc.is_deleted is false
--- inner join (
--- 	select distinct user_identifier, first_name, last_name
--- 	from acl.fact__user
--- 	where us.is_deleted is false
--- ) us on us.user_identifier = s.dim_acl_user_id
--- 
--- where dim_mixpanel_people_distinct_id = '1012418_234901'
--- and date(dim_event_on) = '2017-10-04'
--- order by dim_event_on asc
-
-------------------------
-
-------------------------
-
-title: Keeping time in distributed systems
-
-"Time is hard, man"
-
-Didn't know much about Google's TrueTime
-
-https://www.youtube.com/watch?v=BRvj8PykSc4
-
-------------------------
 
 ------------------------
 
@@ -2065,36 +2042,8 @@ You can find thousands of papers on various topics, I tried to distill a short l
 
 1. Dynamo paper - one that defined a hugely scalable key-value store, it talks about the topology of the system, how it achieves its level of consistency, scale etc. http://courses.cse.tamu.edu/caverlee/csce438/readings/dynamo-paper.pdf
 2. Bigtable - one of the first "NewSQL" systems - hugely scalable relational systems, usually of denormalised tables and using SQL. Since horizontal scale has been a long-standing issue with classical RDBMS, these NewSQL systems try to forgo some of the guarantees of RDBMS (e.g. foreign keys or transaction), but offer much better scale. https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
-3. Kafka - message queues have a looong tradition in computer science, but they are usually thought of as ephemeral - messages come, get processed and get discarded. Kafka was the first major system where storing messages and replays were accounted for in its design. It created a whole new area of data processing, where the stream plays a more important role than storage (=database), because you can always recreate the latter from the former, but not vice versa. http://notes.stephenholiday.com/Kafka.pdf
 4. MapReduce - one of the most influential data engineering papers in the past two decades - it directly lead to data processing in Hadoop and later to Spark, both of which leverage these ideas of horizonally scaling computation on a bunch of nodes in a fault tolerant way. https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
-5. Raft - how does one achieve consensus across a distributed system? Where do we keep the truth and how do we handle failures? Paxos used to be the answer, but it's a notoriously hard problem and this implementation was quite difficult to work with. Raft is a newer and simpler solution to this coordination problem and it's widely used in distributed systems. https://raft.github.io/raft.pdf
-6. Spanner - this scalable database by Google has one specific feature - it not only scales, but it does so while not sacrificing as much as Bigtable - it allows for transactions and other synchronisation principles, which are hard to implement in a distributed system. It does so using special kinds of clocks to keep time across geographies (it even uses GPS and other hardware help). It's amazing how you can keep track of time in these hugely unreliable systems and I can recommend one more talk on this topic (by Kavya Joshi, just search on youtube for her name + "clocks"). https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf
+
+
 
 ------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=AdNJ3fydeao&feature=share
-
-Sonrefreshing to dump shadow dom
-
-------------------------
-
-------------------------
-
-There are tons of useful extensions for Jupyter Lab, check them out. https://youtu.be/3pdrzhny9Lc
-
-------------------------
-
-------------------------
-
-title: Write long commits
-
-https://fatbusinessman.com/2019/my-favourite-git-commit
-https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/
-https://tekin.co.uk/2019/02/a-talk-about-revision-histories
-
-it connects with longevity of things: code > commits >> jira >> slack
-
-------------------------
-
