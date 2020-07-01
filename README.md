@@ -727,6 +727,13 @@ the rest is as well
 ------------------------
 
 ### vim
+
+I have very little set up, basically just incsearch
+
+i use very little
+gg, G, f, t, ;, /, %s, ctrl + f/b or d/u, d/c, y, v/V, ()
+
+
 fzf via vim-plug and fzf https://github.com/junegunn/fzf.vim
     via https://www.youtube.com/watch?v=-I1b8BINyEw
     then map ctrl+p to open any file
