@@ -2,9 +2,6 @@
 
 ### perf
 
-- This is a classic. [Why is GNU grep so fast?](https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html) It does very little and it does this to as few bytes as possible. These advice apply to a much wider number of situations.
-
-
 ------------------------
 
 https://www.youtube.com/watch?v=rHIkrotSwcc&feature=share
@@ -12,6 +9,11 @@ https://www.youtube.com/watch?v=rHIkrotSwcc&feature=share
 There are no zero cost abstractions
 
 ------------------------
+
+
+- This is a classic. [Why is GNU grep so fast?](https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html) It does very little and it does this to as few bytes as possible. These advice apply to a much wider number of situations.
+
+
 
 ------------------------
 
@@ -160,6 +162,15 @@ I've been following the developments of WebAssembly a bit over the past few year
 ### internals
 
 #### algorithms
+
+------------------------
+
+https://www.youtube.com/watch?v=9zpHdh70Xdk&feature=share
+
+Averaging is not as easy as i thought
+
+------------------------
+
 
 4. MapReduce - one of the most influential data engineering papers in the past two decades - it directly lead to data processing in Hadoop and later to Spark, both of which leverage these ideas of horizonally scaling computation on a bunch of nodes in a fault tolerant way. https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
 
@@ -367,6 +378,10 @@ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,
 
 #### databases
 
+
+https://www.youtube.com/watch?v=JWQVDKw1HVk&feature=share
+
+
 SQL statements don’t start with a select. Seems kinda obvious in retrospect, super clear and informative in any case.
 SQL queries don't start with SELECT
 Okay, obviously many SQL queries do start with SELECT (and actually this post is only about SELECT queries, not INSERTs or anything). But! Yesterday I was working on an explanation of window functi...
@@ -534,10 +549,21 @@ Modern developers should know more than just code, they should know devops as we
 
 ------------------------
 
-### terraform
+### deployment
 
 a nice overview of tf
     https://www.youtube.com/watch?v=h970ZBgKINg
+
+------------------------
+
+title: prototype poisoning
+
+it's interesting how you can isolate code in javascript - eg limiting disk access
+https://www.youtube.com/watch?v=hP00w4r4zhg
+
+there is also a trascript https://www.infoq.com/presentations/npm-security-realms-ses/
+
+------------------------
 
 ### service meesh
 
@@ -602,6 +628,16 @@ https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
 
 
 ### legacy software
+
+------------------------
+
+title: Lessons learned from rewriting code in my 10+ years as a developer – Huseyin Polat Yuruk
+
+http://huseyinpolatyuruk.com/2019/02/04/lessons-learned-from-rewriting-code-in-my-10-years-as-a-developer/
+
+Dear new devs - rewriting
+
+------------------------
 
 ------------------------
 
@@ -928,9 +964,6 @@ This is fadcinating https://youtu.be/kw-U6smcLzk
 
 
 
-------------------------
-
-https://www.youtube.com/watch?v=JWQVDKw1HVk&feature=share
 
 ------------------------
 
@@ -973,11 +1006,6 @@ A really nicentalk aboutnthe walrus operator, but also about being nice on the i
 
 ------------------------
 
-------------------------
-
-https://www.youtube.com/watch?v=bmSAYlu0NcY&feature=share
-
-------------------------
 
 ------------------------
 
@@ -1235,8 +1263,6 @@ title: Blog videos
 
 Matt Godbolt is another of my favourite speakers, here's [a talk mostly about compilers](https://youtu.be/bSkpMdDe4g4?t=2852), but also about his super popular site, [Compiler Explorer](https://godbolt.org/), how it works, what resources it needs (it seems ridiculously efficient), how it does isolation, security etc.
 
-I usually like more down to earth speakers, but [Jesse Anderson's notes on big data teams](https://www.youtube.com/watch?v=VkeleGIUSM8) ring true more often than not. He talks a lot about composition of teams, where things can go wrong, how you need veterans, how whiteboards can save you months etc.
-
 
 I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
 
@@ -1263,7 +1289,6 @@ I've only written tiny bits of C++ and I was quite surprised how it differs from
 
 There's a walrus operator coming in Python 3.8. Do you not know? [Here's not only what it is](https://www.youtube.com/watch?v=6uAvHOKofws&feature=share), but also a reminder that we should be nice to other people on the internet, and what's changing in terms of Python governance.
 
-It's not all just about velocity, features and such, it's also about good design. [Here's a Google talk](https://www.youtube.com/watch?v=bmSAYlu0NcY&feature=share) by John Ousterhout about that very topic. He also [has a new book about that](https://twitter.com/johnousterhout/status/989260683836506112?lang=en), it's on my todo list.
 
 kafka definitive guide
 
@@ -1769,16 +1794,7 @@ https://www.youtube.com/watch?v=kNHo788oO5Y&feature=share
 
 ------------------------
 
-------------------------
 
-title: prototype poisoning
-
-it's interesting how you can isolate code in javascript - eg limiting disk access
-https://www.youtube.com/watch?v=hP00w4r4zhg
-
-there is also a trascript https://www.infoq.com/presentations/npm-security-realms-ses/
-
-------------------------
 
 ------------------------
 
@@ -1822,13 +1838,6 @@ https://blog.bradfieldcs.com/you-are-not-google-84912cf44afb
 
 ------------------------
 
-------------------------
-
-https://www.youtube.com/watch?v=9zpHdh70Xdk&feature=share
-
-Averaging is not as easy as i thought
-
-------------------------
 
 ------------------------
 
@@ -1889,15 +1898,7 @@ https://www.youtube.com/watch?v=SMSmKg1nApM
 
 ------------------------
 
-------------------------
 
-title: Lessons learned from rewriting code in my 10+ years as a developer – Huseyin Polat Yuruk
-
-http://huseyinpolatyuruk.com/2019/02/04/lessons-learned-from-rewriting-code-in-my-10-years-as-a-developer/
-
-Dear new devs - rewriting
-
-------------------------
 
 ------------------------
 
