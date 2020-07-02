@@ -2,6 +2,16 @@
 
 ### perf
 
+https://twitter.com/pndrej/status/1247620953900748802?s=12
+
+------------------------
+
+https://www.youtube.com/watch?v=r-TLSBdHe1A&feature=share
+
+A super fun talk about performance trickiness from an angle I havent known about. Like... user name can change performance. 
+
+------------------------
+
 ------------------------
 
 https://www.youtube.com/watch?v=rHIkrotSwcc&feature=share
@@ -67,6 +77,14 @@ it has a transcript https://www.infoq.com/presentations/simdjson-parser/
 ### languages
 
 #### rust
+
+------------------------
+
+https://www.youtube.com/watch?v=2ajos-0OWts&feature=share
+
+Interesting design dexision in Rust, not just from a language theory perspective, but more about user usage. Also talks about language governance and its evolution. 
+
+------------------------
 
 Bryan Cantrill tends to get excited about stuff. Here he [talks about various languages](https://youtu.be/HgtRAbE1nBM) and why he likes Rust. Oh and [here as well](https://www.youtube.com/watch?v=2wZ1pCpJUIM). I also enjoyed his talk on [growing teams](https://www.youtube.com/watch?v=1KeYzjILqDo).
 
@@ -268,6 +286,12 @@ https://www.youtube.com/watch?v=BRvj8PykSc4
 
 #### parallelism
 
+------------------------
+
+Lots of parallel primitives in Python, this is a great oberview https://youtu.be/0RaotdCa_j0
+
+------------------------
+
 5. Raft - how does one achieve consensus across a distributed system? Where do we keep the truth and how do we handle failures? Paxos used to be the answer, but it's a notoriously hard problem and this implementation was quite difficult to work with. Raft is a newer and simpler solution to this coordination problem and it's widely used in distributed systems. https://raft.github.io/raft.pdf
 
 ------------------------
@@ -342,7 +366,16 @@ read-level deduplication, cool arch
 
 https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
 
-#### pandas
+#### dataframes
+
+------------------------
+
+https://www.youtube.com/watch?v=2Tt0i823-ec&feature=share
+
+A super impressive live demo
+
+------------------------
+
 
 - One of the most cited issues with pandas has been its inability to contain integer series with nulls. This lack of support is caused by the treatment of nulls in series - pandas uses sentinel values rather than a separate bitarray. Here is [a good overview of what's changed recently](https://www.youtube.com/watch?v=gxvTVxlvH9w) by Jeff Reback, pandas' long time maintainer.
 
@@ -551,6 +584,11 @@ Modern developers should know more than just code, they should know devops as we
 
 ### deployment
 
+Matt Godbolt is another of my favourite speakers, here's [a talk mostly about compilers](https://youtu.be/bSkpMdDe4g4?t=2852), but also about his super popular site, [Compiler Explorer](https://godbolt.org/), how it works, what resources it needs (it seems ridiculously efficient), how it does isolation, security etc.
+
+---
+
+
 a nice overview of tf
     https://www.youtube.com/watch?v=h970ZBgKINg
 
@@ -582,6 +620,14 @@ Kubernetes failure stories github
 
 ### containers
 
+------------------------
+
+title: Intro Guide to Dockerfile Best Practices
+
+https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/
+
+------------------------
+
 - “If you’re listening to this podcast and you’re not using containers and you feel bad about it... please don’t.” Another great episode one realises that you don't have to be at the cutting edge of technology to function just fine. https://hanselminutes.com/645/container-catharsis-with-laura-frank-tacho
 
 ### cloud, vms and such
@@ -612,6 +658,16 @@ Reflections on 10 years of open source developments. I recommend the blog as a w
 
 ### team work
 
+------------------------
+
+title: How to ask good questions - Julia Evans
+
+https://jvns.ca/blog/good-questions/
+
+This is pretty essential. 
+
+------------------------
+
 I usually like more down to earth speakers, but [Jesse Anderson's notes on big data teams](https://www.youtube.com/watch?v=VkeleGIUSM8) ring true more often than not. He talks a lot about composition of teams, where things can go wrong, how you need veterans, how whiteboards can save you months etc.
 
 ---
@@ -628,6 +684,9 @@ https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
 
 
 ### legacy software
+
+- Rewriting software always leads to broken deadlines, new bugs everywhere, reinventing the wheels etc. I've done this a few times and it was always the same. Here's [a good overview of how a lot larger rewrites turned out](https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22).
+
 
 ------------------------
 
@@ -675,6 +734,12 @@ chandler carruth
 "I can deploy while in warrior three."
 
 https://www.youtube.com/watch?v=Mz3JeYfBTcY&feature=share
+
+
+### biz
+
+- Shortly after Microsoft announced its aquisition of Github, Gitlab's founder and CEO, Sid Sijbrandij, [went on The Architecht's Show](http://architechtshow.com/ep-60-gitlab-ceo-on-competing-with-microsoft-betting-on-kubernetes-and-learning-to-scale) to talk all things Gitlab and their competition.
+
 
 
 ## version control
@@ -913,8 +978,6 @@ date: 2019-12-02T07:03:53+02:00
 
 ---
 
-- Shortly after Microsoft announced its aquisition of Github, Gitlab's founder and CEO, Sid Sijbrandij, [went on The Architecht's Show](http://architechtshow.com/ep-60-gitlab-ceo-on-competing-with-microsoft-betting-on-kubernetes-and-learning-to-scale) to talk all things Gitlab and their competition.
-- Rewriting software always leads to broken deadlines, new bugs everywhere, reinventing the wheels etc. I've done this a few times and it was always the same. Here's [a good overview of how a lot larger rewrites turned out](https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22).
 - I tried out Presto for a few workloads and I was incredibly impressed. It's a great piece of software and [this video](https://www.youtube.com/watch?v=Z2C-iYNm2wU) offers a really nice overview of its architecture and how it differs from Spark.
 
 I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
@@ -984,11 +1047,6 @@ title: Occasional productivity
 
 ------------------------
 
-------------------------
-
-https://twitter.com/pndrej/status/1247620953900748802?s=12
-
-------------------------
 
 ------------------------
 
@@ -1007,13 +1065,6 @@ A really nicentalk aboutnthe walrus operator, but also about being nice on the i
 ------------------------
 
 
-------------------------
-
-https://www.youtube.com/watch?v=r-TLSBdHe1A&feature=share
-
-A super fun talk about performance trickiness from an angle I havent known about. Like... user name can change performance. 
-
-------------------------
 
 ------------------------
 
@@ -1050,55 +1101,6 @@ https://www.youtube.com/watch?v=kIoZDUd5DKw&feature=share
 
 ------------------------
 
-------------------------
-
-title: KNOD
-
-přidat chtěné datasety
-dopravní informace atd. (z datařů)
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=2Tt0i823-ec&feature=share
-
-A super impressive live demo
-
-------------------------
-
-
-------------------------
-
-title: so404
-
-hunting dead links on stack overflow (careful about err 405) -- many locked threads, try googling, then web archive, then github search, then desperation
-
-- so404 - git log foo.md to find removed files - people link to master branches - they should link to commits! e.g. https://stackoverflow.com/questions/4784575/how-do-i-find-the-most-recent-git-commit-that-modified-a-file - I had to git clone && touch && git log CHANGELOG.md to find the culprit
-
-show fixing
-
-  {
-    "qurl": "https://stackoverflow.com/questions/500607",
-    "url": "http://video.google.com/videoplay?docid=-6710586843601387849",
-    "link_text": "link to a video",
-    "status": 404
-  },
-  {
-    "qurl": "https://stackoverflow.com/questions/84556",
-    "url": "http://img128.imageshack.us/img128/1553/24383stripme5.gif",
-    "link_text": "http://img128.imageshack.us/img128/1553/24383stripme5.gif",
-    "status": 404
-  },
-
-  {
-    "qurl": "https://stackoverflow.com/questions/1995113",
-    "url": "https://stackoverflow.com/questions/268751/what-ever-happened-to-apl",
-    "link_text": "APL (other than ALL of it),",
-    "status": 404
-  },
-
-------------------------
 
 ------------------------
 
@@ -1258,10 +1260,6 @@ https://www.youtube.com/watch?v=UtjoaTfbdcA&feature=share
 ------------------------
 
 ------------------------
-
-title: Blog videos
-
-Matt Godbolt is another of my favourite speakers, here's [a talk mostly about compilers](https://youtu.be/bSkpMdDe4g4?t=2852), but also about his super popular site, [Compiler Explorer](https://godbolt.org/), how it works, what resources it needs (it seems ridiculously efficient), how it does isolation, security etc.
 
 
 I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
@@ -1463,13 +1461,7 @@ Sharding is hard
 
 ------------------------
 
-------------------------
 
-https://www.youtube.com/watch?v=2ajos-0OWts&feature=share
-
-Interesting design dexision in Rust, not just from a language theory perspective, but more about user usage. Also talks about language governance and its evolution. 
-
-------------------------
 
 ------------------------
 
@@ -1637,15 +1629,7 @@ Wheels are still magic, but less so
 
 ------------------------
 
-------------------------
 
-title: How to ask good questions - Julia Evans
-
-https://jvns.ca/blog/good-questions/
-
-This is pretty essential. 
-
-------------------------
 
 ------------------------
 
@@ -1661,16 +1645,6 @@ alias
 ctrl z + fg
 
 ------------------------
-
-------------------------
-
-Kafka talk
-
-------------------------
-
-
-
-
 
 ------------------------
 
@@ -1710,11 +1684,7 @@ Gone are the days where we’d tell the server about encoding, mime types and co
 
 ------------------------
 
-------------------------
 
-Lots of parallel primitives in Python, this is a great oberview https://youtu.be/0RaotdCa_j0
-
-------------------------
 
 ------------------------
 
@@ -1772,13 +1742,7 @@ title: harmonogram
 
 ------------------------
 
-------------------------
 
-title: Intro Guide to Dockerfile Best Practices
-
-https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/
-
-------------------------
 
 ------------------------
 
