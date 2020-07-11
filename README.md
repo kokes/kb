@@ -80,6 +80,15 @@ it has a transcript https://www.infoq.com/presentations/simdjson-parser/
 
 ------------------------
 
+title: Falling in love with Rust
+
+http://dtrace.org/blogs/bmc/2018/09/18/falling-in-love-with-rust/
+
+------------------------
+
+
+------------------------
+
 https://www.youtube.com/watch?v=2ajos-0OWts&feature=share
 
 Interesting design dexision in Rust, not just from a language theory perspective, but more about user usage. Also talks about language governance and its evolution. 
@@ -129,6 +138,13 @@ C++ has come a looong way. But also means its difficykt af
 
 #### Python
 
+------------------------
+
+‪I knew that CPython can efficiently concatenate strings, despite their immutability. I never knew why, thanks for this explanation. https://blog.ganssle.io/articles/2019/11/string-concat.html‬
+
+------------------------
+
+
 - Raymond Hettinger is a core Python developer, he's quite known for being a great speaker and educator. Here's [a talk on Python dictionaries](https://www.youtube.com/watch?v=p33CVV29OG8), how they came up to be, how their implementation changed over the years and what it means for their users.
 
 
@@ -167,6 +183,23 @@ Many difference between py2 and 3s, not really how they migrated :(
 
 ------------------------
 
+#### Go
+
+https://www.youtube.com/watch?v=kNHo788oO5Y&feature=share
+
+------------------------
+
+title: go inlining
+
+comment for: https://lemire.me/blog/2020/06/04/the-go-compiler-needs-to-be-smarter/
+
+A frustrating thing about inlining in Go is that there's a fairly arbitrary cost model and you sometimes end up fighting it (lookup George Tankersley's talks on YouTube). There have been tons of discussions about whether or not it should be user configurable, if inlining hints should happen at the call sites or function definitions etc.
+It's quite a nice discussion that helps people understand the toolchain. It also goes to show that while a self hosted build system is nice, you forgo decades of gcc/llvm optimisations. https://github.com/golang/go/issues/17566
+
+------------------------
+
+
+
 #### webassembly
 
 ------------------------
@@ -194,6 +227,21 @@ Averaging is not as easy as i thought
 
 
 #### architecture
+
+------------------------
+
+title: You Are Not Google
+
+https://blog.bradfieldcs.com/you-are-not-google-84912cf44afb
+
+------------------------
+
+
+A nice overview of how Tailscale works. Reminds me of using Hamachi back in the day, worked like magic.
+
+https://tailscale.com/blog/how-tailscale-works/
+
+-----
 
 The Amazon Builders’ Library is a nice resource, I hope they add more content over time. Here’s a bit of it in video form (I liked the shuffle sharding explanation).
 
@@ -226,6 +274,11 @@ https://www.youtube.com/watch?v=IZ8CBwP5nlA&feature=share
 Just use fewer texhnologies. Dont use complex contraptions
 
 ------------------------
+
+https://www.youtube.com/watch?v=3AxSwCC7I4s&feature=share
+
+Never knew this whole area even existed as a thing
+
 
 #### data structures
 
@@ -332,7 +385,14 @@ I teach Python and I often struggle when explaining decorators, [this talk](http
 
 ### data
 
-#### architecture
+#### architecture, engineering
+
+------------------------
+
+Networks are problematic. Ever since reading Designing Data Intensive Applications, I’ve been more aware of this. This article, co-authored by Kyle Kingsbury of Jepsen, describes a whole host of network issues. https://dl.acm.org/doi/10.1145/2639988.2655736
+
+------------------------
+
 
 3. Kafka - message queues have a looong tradition in computer science, but they are usually thought of as ephemeral - messages come, get processed and get discarded. Kafka was the first major system where storing messages and replays were accounted for in its design. It created a whole new area of data processing, where the stream plays a more important role than storage (=database), because you can always recreate the latter from the former, but not vice versa. http://notes.stephenholiday.com/Kafka.pdf
 
@@ -352,7 +412,6 @@ The value in big data is democratization, not size or ML.
 
 ------------------------
 
-------------------------
 
 title: Delivering billions of messages exactly once
 
@@ -360,7 +419,35 @@ https://segment.com/blog/exactly-once-delivery/
 
 ------------------------
 
-#### streaming
+title: Is Hadoop Dead?
+
+https://tech.marksblogg.com/is-hadoop-dead.html
+
+------------------------
+
+title: Metadata management in big data is a bitch
+
+Here's an open source offering from the We company. I feel like this space is underserved by quality software. The "standard" of Apache Atlas is super heavyweight, I'm not willing to have Kafka or HBase to store a few rows of data, no way.
+
+https://www.youtube.com/watch?v=dRaRKob-lRQ
+
+------------------------
+
+
+------------------------
+
+title: Common Data Engineering Mistakes
+
+New technology is not the key to success
+
+Distributed processing is difficult
+
+Engineering for imaginary scale problems
+
+https://www.youtube.com/watch?v=mv7PLnwzLpM
+
+
+----
 
 read-level deduplication, cool arch
 
@@ -410,6 +497,41 @@ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,
     https://kokes.github.io/blog/2020/06/22/apache-spark-pyspark-s3.html
 
 #### databases
+
+------------------------
+
+title: dynamo paper
+
+The legendary Dynamo paper turns out to be a very dense piece of writing. Took me quite a while to parse it all, let alone understand at least some of it. https://allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
+
+There are a number of techniques they employ. I like the symmetric nodes thing, which allows for simpler scaling. Also, partitioning based on consistent hashing results in less network traffic when clusters resize.
+
+Tunable performance, availability and durability is a great thing that I'd welcome elsewhere - when I know I don't need consistency or integrity, let me write loads quickly, please. Kafka works sort of similar, since you can tune replication properties to change performance.
+
+I always thought the client library was just issuing API calls, but it turns out that in Dynamo, they not only do some conflict resolution, but also pull cluster topology to avoid relying on a load balancer, which leads to better latency.
+
+Last but not least - Dynamo is not just about DynamoDB, but about a set of principles to build distributed key-value stores. So it applies more broadly.
+
+Overall it's a good read, but it is fairly technical.
+
+------------------------
+
+
+
+------------------------
+
+title: useful reminder
+
+https://blog.jooq.org/2019/04/09/the-difference-between-sqls-join-on-clause-and-the-where-clause/
+
+------------------------
+
+
+https://www.youtube.com/watch?v=VMLl-t4H_KI&feature=share
+
+----
+
+- Postgres is my goto database and even after more than 20 years of development, there are new features introduced every year. The latest version, 11, is mostly focused around better partitioning and parallelisation. I liked two videos on it - Magnus Hagander [mostly focuses on features](https://www.youtube.com/watch?v=lgzXuFQ0Pbk), while Joe Conway [covers how development is done as well](https://www.youtube.com/watch?v=kPhs-wdrb58).
 
 
 https://www.youtube.com/watch?v=JWQVDKw1HVk&feature=share
@@ -774,6 +896,9 @@ You need to understand git internals. THis is an epic talk. https://www.youtube.
 
 ### ides
 
+- I've been using [Visual Studio Code](https://code.visualstudio.com/) on and off for quite a while, but I still don't use any advanced features. Here's [a EuroPython talk](https://www.youtube.com/watch?v=6YLMWU-5H9o) on some of its advanced features (not just) related to Python.
+
+
 
 ------------------------
 
@@ -801,6 +926,47 @@ Cli: tig, rg, loc, ncdu, vim, tqdm
 
 ripgrep
 https://www.youtube.com/watch?v=dnzaIeUgH_4
+
+- data sci command line - wc, grep, cat, head, tail, tail -f, zcat, zgrep, python -m json.tool, jq?, sed, awk
+
+https://www.wezm.net/technical/2019/10/useful-command-line-tools/
+https://boyter.org/posts/my-list-of-useful-command-line-tools/
+
+Todo: join?
+
+Watch tree
+Watch uniq sort
+
+Tr, sed, awk, head, tail, grep, head -c
+
+Grep performance doc
+
+How uniq works
+
+Gunzip -c
+
+Conventions: h/help/man; streaming pipes; tools only do one thing
+
+For each command show the pandas equivalent - head, tail, value counts
+
+Sample, shuffle, split (for paralelisation, can be streamed)
+Parallel
+
+Ssh config
+
+Head -c can be replaced with cut -c
+
+Wc, du
+
+Tmux
+
+Fold?
+Curl
+
+Bonus: non-standard - jq, ripgrep, csvkit, tqdm, 
+
+Pipeline - curl wikidata, gunzip, head, sed, jq
+
 
 ------------------------
 
@@ -859,6 +1025,25 @@ bind e set -g synchronize-panes
 - I saw this quite a while ago, but I remember it being quite cool. Scott Hansleman is diabetic, but doesn't like the commercial hardware and software used to track his blood sugar level. [He talks at length about making is own, open device](https://www.youtube.com/watch?v=uNhYhlBQoEY), with a gazillion caveats, of course.
 
 
+-----
+
+- With all those cutting edge technologies, it's quite refreshing to listen to a podcast about [coding for the ZX Spectrum](https://hanselminutes.com/670/coding-for-the-zx-spectrum-and-netflixblack-mirrors-bandersnach-with-matt-westcott), specifically for an episode of Black Mirror (an excellent TV series, by the way).
+
+
+
+
+## random
+
+------------------------
+
+I finally know why emails end with J. It's Wingdings. Yes, really.
+
+https://www.youtube.com/watch?v=SMSmKg1nApM
+
+------------------------
+
+
+
 
 
 
@@ -870,27 +1055,16 @@ bind e set -g synchronize-panes
 
 copy stuff from my smda makefile - it's what i use for go anyway
 
-alias
-
 ctrl z + fg
 
 Some perf can be free in terms of cpu, if it’s memory bound
 
 Compilers are awesome
 
-- With all those cutting edge technologies, it's quite refreshing to listen to a podcast about [coding for the ZX Spectrum](https://hanselminutes.com/670/coding-for-the-zx-spectrum-and-netflixblack-mirrors-bandersnach-with-matt-westcott), specifically for an episode of Black Mirror (an excellent TV series, by the way).
-- Postgres is my goto database and even after more than 20 years of development, there are new features introduced every year. The latest version, 11, is mostly focused around better partitioning and parallelisation. I liked two videos on it - Magnus Hagander [mostly focuses on features](https://www.youtube.com/watch?v=lgzXuFQ0Pbk), while Joe Conway [covers how development is done as well](https://www.youtube.com/watch?v=kPhs-wdrb58).
----
-title: "Assorted tech links #2"
-date: 2019-07-20T07:03:53+02:00
-draft: false
----
-
 
 ---
 
 - I like Joel Grus, he [live streams himself live coding Advent of Code](https://www.youtube.com/watch?v=VPXXthwAdg8&list=PLeDtc0GP5ICklPBnoZ0fdrw130hxI6_b3), he has written a cool book on Data Science (the second edition [has just been released](https://www.oreilly.com/library/view/data-science-from/9781492041122/)) and... he [doesn't like Jupyter notebooks](https://www.youtube.com/watch?v=7jiPeIFXb6U). It's a good thing that this is talked about, because notebooks are almost universally praised, but people should know about the downsides, too.
-- I've been using [Visual Studio Code](https://code.visualstudio.com/) on and off for quite a while, but I still don't use any advanced features. Here's [a EuroPython talk](https://www.youtube.com/watch?v=6YLMWU-5H9o) on some of its advanced features (not just) related to Python.
 - If you working with Spark, chances are you've read something from Jacek Laskowski, he maintains [a few sites on the internals of Spark or Kafka](https://github.com/jaceklaskowski), these are really good resources relating to underdocumented pieces of code. One fairly recent addition to Spark is bucketing and Jacek [had a nice Spark Summit talk](https://www.youtube.com/watch?v=dv7IIYuQOXI) on the topic.
 - There are tons of interesting data structures and algorithms, Nicholas Ormrod covers a few of them in [this great CppCon talk](https://www.youtube.com/watch?v=YA-nB2wjVcI). I highly recommend the last part where he talks about [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an algorithm which is very close to magic. Oh and I also gave a talk on HyperLogLog and similar algorithms at [this year's PyData Amsterdam](https://www.youtube.com/watch?v=8Ean3Bx_o_M).
 - I've been compiling these lists of links based on my notes and one of my notes says just "Chandler Carruth". Not sure if I was referring to a specific talk, but I watched [nearly all his talks from CppCons](https://www.youtube.com/results?search_query=chandler+carruth), because his captivating narrative is really fun to watch. I don't write any C++, but the principles covered in these talks are mostly universal.
@@ -1727,231 +1901,11 @@ title: harmonogram
 - explainable ML - http://multithreaded.stitchfix.com/blog/2017/10/18/stop-using-word2vec/
 - models can be explainable! a great explanation of how they created explanations for random forests (https://www.youtube.com/watch?v=DiWkKqZChF0) - their collegaues previously talked about implementing these models at scale https://www.youtube.com/watch?v=vKU8MWORHP8
 - Sharing gmail accounts - logs search histoey!!!
-- data sci command line - wc, grep, cat, head, tail, tail -f, zcat, zgrep, python -m json.tool, jq?, sed, awk
-- oss contributions - zeppelin pull request
-- oss contribution - wikidata - misrepresentation of september/october
-- random tricks - grep to test, cmd+k, open ., alfred - open in terminal, print(end='\r')
-- polluting the namespace - problem of R, problem of spark/scala (import foo.bar._) - problem of legibility, conflicts, ...
-- hey, can we just finish software? Like BoltDB. Things like message queues and other 'infrastructure' software should be finished, right?
-- just use your laptop - colleague wanted 70M rows (2 GB) analyzed - just pop it into pandas or something (Lepik, uid pid)
+
+
 - https://remusao.github.io/posts/2017-10-21-few-tips-sqlite-perf.html
 - IO as readers and writers, not filenames - testing, mocking, data from db or cache instead of files
 - joy of programming (go, learning about allocation and strucutres)
 - joy of not programming (sql, clang, smarter people know how to optimise my code that runs)
 - treating network body as a stream of bytes and how libraries often hide that (and make your program slow and memory heavy)
 
-------------------------
-
-
-
-------------------------
-
-title: Falling in love with Rust
-
-http://dtrace.org/blogs/bmc/2018/09/18/falling-in-love-with-rust/
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=kNHo788oO5Y&feature=share
-
-------------------------
-
-
-
-------------------------
-
-title: dynamo paper
-
-The legendary Dynamo paper turns out to be a very dense piece of writing. Took me quite a while to parse it all, let alone understand at least some of it. https://allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
-Ondrej Kokes
-@pndrej
-·
-4s
-There are a number of techniques they employ. I like the symmetric nodes thing, which allows for simpler scaling. Also, partitioning based on consistent hashing results in less network traffic when clusters resize.
-Ondrej Kokes
-@pndrej
-·
-4s
-Tunable performance, availability and durability is a great thing that I'd welcome elsewhere - when I know I don't need consistency or integrity, let me write loads quickly, please. Kafka works sort of similar, since you can tune replication properties to change performance.
-Ondrej Kokes
-@pndrej
-·
-3s
-I always thought the client library was just issuing API calls, but it turns out that in Dynamo, they not only do some conflict resolution, but also pull cluster topology to avoid relying on a load balancer, which leads to better latency.
-Ondrej Kokes
-@pndrej
-Last but not least - Dynamo is not just about DynamoDB, but about a set of principles to build distributed key-value stores. So it applies more broadly.
-
-Overall it's a good read, but it is fairly technical.
-
-------------------------
-
-------------------------
-
-title: You Are Not Google
-
-https://blog.bradfieldcs.com/you-are-not-google-84912cf44afb
-
-------------------------
-
-------------------------
-
-‪I knew that CPython can efficiently concatenate strings, despite their immutability. I never knew why, thanks for this explanation. https://blog.ganssle.io/articles/2019/11/string-concat.html‬
-
-------------------------
-
-
-------------------------
-
-title: useful reminder
-
-https://blog.jooq.org/2019/04/09/the-difference-between-sqls-join-on-clause-and-the-where-clause/
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=VMLl-t4H_KI&feature=share
-
-------------------------
-
-------------------------
-
-title: Simple fb api downloading
-
-------------------------
-
-
-
-------------------------
-
-title: go inlining
-
-comment for: https://lemire.me/blog/2020/06/04/the-go-compiler-needs-to-be-smarter/
-
-A frustrating thing about inlining in Go is that there's a fairly arbitrary cost model and you sometimes end up fighting it (lookup George Tankersley's talks on YouTube). There have been tons of discussions about whether or not it should be user configurable, if inlining hints should happen at the call sites or function definitions etc.
-It's quite a nice discussion that helps people understand the toolchain. It also goes to show that while a self hosted build system is nice, you forgo decades of gcc/llvm optimisations. https://github.com/golang/go/issues/17566
-
-------------------------
-
-------------------------
-
-https://twitter.com/pndrej/status/1245719986540285952?s=12
-
-------------------------
-
-------------------------
-
-Networks are problematic. Ever since reading Designing Data Intensive Applications, I’ve been more aware of this. This article, co-authored by Kyle Kingsbury of Jepsen, describes a whole host of network issues. queue.acm.org/detail.cfm?id=…
-
-------------------------
-
-------------------------
-
-Kafka talk
-
-------------------------
-
-------------------------
-
-I finally know why emails end with J. It's Wingdings. Yes, really.
-
-https://www.youtube.com/watch?v=SMSmKg1nApM
-
-------------------------
-
-
-
-------------------------
-
-title: Is Hadoop Dead?
-
-https://tech.marksblogg.com/is-hadoop-dead.html
-
-------------------------
-
-------------------------
-
-title: Metadata management in big data is a bitch
-
-Here's an open source offering from the We company. I feel like this space is underserved by quality software. The "standard" of Apache Atlas is super heavyweight, I'm not willing to have Kafka or HBase to store a few rows of data, no way.
-
-https://www.youtube.com/watch?v=dRaRKob-lRQ
-
-------------------------
-
-
-
-------------------------
-
-title: Common Data Engineering Mistakes
-
-New technology is not the key to success
-
-Distributed processing is difficult
-
-Engineering for imaginary scale problems
-
-https://www.youtube.com/watch?v=mv7PLnwzLpM
-
-------------------------
-
-------------------------
-
-title: pydata coreutils talk
-
-https://www.wezm.net/technical/2019/10/useful-command-line-tools/
-https://boyter.org/posts/my-list-of-useful-command-line-tools/
-
-Pandas in the command line
-
-Why cmd - it’s everywhere, it’s your only option when ssh’ed, it’s fast, works on streams, no setup
-
-Why not - no caching, no super complex logic, no proper csv treatment (with basic tools)
-
-Todo: join?
-
-Watch tree
-Watch uniq sort
-
-Tr, sed, awk, head, tail, grep, head -c
-
-Grep performance doc
-
-How uniq works
-
-Gunzip -c
-
-Conventions: h/help/man; streaming pipes; tools only do one thing
-
-For each command show the pandas equivalent - head, tail, value counts
-
-Sample, shuffle, split (for paralelisation, can be streamed)
-Parallel
-
-Ssh config
-
-Head -c can be replaced with cut -c
-
-Wc, du
-
-Tmux
-
-Fold?
-Curl
-
-Bonus: non-standard - jq, ripgrep, csvkit, tqdm, 
-
-Pipeline - curl wikidata, gunzip, head, sed, jq
-
-------------------------
-
-
-
-------------------------
-
-https://www.youtube.com/watch?v=3AxSwCC7I4s&feature=share
-
-Never knew this whole area even existed as a thing
