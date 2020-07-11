@@ -494,6 +494,13 @@ http://calpaterson.com/mypy-hints.html
 
 #### software development
 
+------------------------
+
+https://www.youtube.com/watch?v=PorfLSr3DDI&feature=share
+
+------------------------
+
+
 - Code reviews are essential, but that doesn't mean we have to do PEP8 and other code quality checks by hand. [Automate these away as much as possible.](https://www.youtube.com/watch?v=G1lDk_WKXvY)
 - Dependency management is hard. Here are [a few notes from the creator of pipenv](https://www.youtube.com/watch?v=GBQAKldqgZs). I'm still not entirely sold on pipenv, but I do tend to use it, because it's nicely built into our deployment flow.
 
@@ -1544,11 +1551,6 @@ Has part two
 https://medium.com/tinder-engineering/geosharded-recommendations-part-1-sharding-approach-d5d54e0ec77a
 
 
-------------------------
-
-https://www.youtube.com/watch?v=PorfLSr3DDI&feature=share
-
-------------------------
 
 title: Programming should be responsible
 
