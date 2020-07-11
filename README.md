@@ -78,6 +78,9 @@ it has a transcript https://www.infoq.com/presentations/simdjson-parser/
 
 #### rust
 
+Rustaceans tend to be quite... enthusiastic, but this is a good, somber [overview of borrower and mutex primitives](https://youtu.be/s19G6n0UjsM).
+
+
 
 ------------------------
 
@@ -177,6 +180,14 @@ C++ has come a looong way. But also means its difficykt af
 
 #### Python
 
+
+Python wheels are still magic to me, but they are a tiny bit less magic now, [thanks to this PyCon talk](https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share).
+
+
+There's a walrus operator coming in Python 3.8. Do you not know? [Here's not only what it is](https://www.youtube.com/watch?v=6uAvHOKofws&feature=share), but also a reminder that we should be nice to other people on the internet, and what's changing in terms of Python governance.
+
+
+
 I teach Python and I often struggle when explaining decorators, [this talk](https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share) is a great overview of not just what they are, but also *why* they work.
 
 
@@ -221,9 +232,6 @@ I teach python, but its quite hard for me to explain decorators - this is angood
 
 
 
-There's a walrus operator coming in Python 3.8. Do you not know? [Here's not only what it is](https://www.youtube.com/watch?v=6uAvHOKofws&feature=share), but also a reminder that we should be nice to other people on the internet, and what's changing in terms of Python governance.
-
-------------------------
 
 title: We learned this the hard way
 
@@ -257,6 +265,14 @@ Many difference between py2 and 3s, not really how they migrated :(
 
 #### Go
 
+------------------------
+
+https://www.youtube.com/watch?v=_NKQX-TdNMc&feature=share
+
+It’s a bit annoying that Go can’t mock, so you have to do all this interface kungfu. But at least it’s more explicit. 
+
+------------------------
+
 A very nice and clear explanation of [how maps are implemented in Go](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics).
 
 
@@ -276,6 +292,9 @@ It's quite a nice discussion that helps people understand the toolchain. It also
 
 ------------------------
 
+#### javascript
+
+- A great talk by the creator of Node.js. [What he regrets and what he’d do differently.](https://youtu.be/M3BM9TB-8yA)
 
 
 #### webassembly
@@ -452,6 +471,10 @@ https://www.youtube.com/watch?v=5dMOYf0b_20
 
 ------------------------
 
+This is a nice and concise overview of parallel computing primitives in Python. Be it processes, threads, workers or coroutines. https://youtu.be/0RaotdCa_j0
+
+------------------------
+
 #### type checking
 
 ------------------------
@@ -476,6 +499,38 @@ http://calpaterson.com/mypy-hints.html
 
 #### software development
 
+- Code reviews are essential, but that doesn't mean we have to do PEP8 and other code quality checks by hand. [Automate these away as much as possible.](https://www.youtube.com/watch?v=G1lDk_WKXvY)
+- Dependency management is hard. Here are [a few notes from the creator of pipenv](https://www.youtube.com/watch?v=GBQAKldqgZs). I'm still not entirely sold on pipenv, but I do tend to use it, because it's nicely built into our deployment flow.
+
+
+------------------------
+
+title: Reading postmortems
+
+https://danluu.com/postmortem-lessons/
+
+------------------------
+
+------------------------
+
+title: Things I Learnt The Hard Way (in 30 Years of Software Development)
+
+https://blog.juliobiason.net/thoughts/things-i-learnt-the-hard-way/
+
+Dear new devs
+
+------------------------
+
+------------------------
+
+title: Crash early and crash often for more reliable software
+
+https://medium.com/@mattklein123/crash-early-and-crash-often-for-more-reliable-software-597738dd21c5
+
+Sont do try except pass
+
+------------------------
+
 - I expected a dry talk on code reviews and it ended up being [a really nice overview of culture, soft skills, helping newcomers, dealing with anxiety, GTD etc](https://youtu.be/iNG1a--SIlk).
 - Forget PEP8, version control, reviews or tests. No bash, subprocess run all the things, just good old sloppy code that *solves your problem*. [Super fast and excellent](https://www.youtube.com/watch?v=Jd8ulMb6_ls).
 
@@ -485,6 +540,8 @@ https://www.youtube.com/watch?v=MYucYon2-lk&feature=share
 ------------------------
 
 title: TDD where did it go wrong
+
+- TDD has become almost a religion. Here's a great talk on [where it all went wrong](https://www.youtube.com/watch?v=EZ05e7EMOLM). Ian Cooper covers the origins - like red-green-refactor - but also the bad practices we've come to adopt, the most prominent one being that we tend to test implementations rather than behaviour. Once you factor in your implementation details into your test, you've deviated from the original idea of TDD.
 
 ------------------------
 
@@ -512,6 +569,27 @@ https://justinmeiners.github.io/the-skills-programmers-lack/
 ### data
 
 #### architecture, engineering
+
+
+------------------------
+
+title: kafka zookeeper
+
+I've been looking forward to Kafka dropping Zookeeper and always viewed the change as just swapping a part. Turns out there are good reasons other than simplifying deployment. This is a good talk on that. https://www.youtube.com/watch?v=3qNNinbnWmw
+
+------------------------
+
+2. Millions of tiny databases - Amazon runs exabytes of storage for their customers and it turns out that running replicated storage reliably is quite hard and it calls for unorthodox solutions. https://assets.amazon.science/c4/11/de2606884b63bf4d95190a3c2390/millions-of-tiny-databases.pdf
+------------------------
+
+
+------------------------
+
+title: Transparent Hierarchical Storage Management with Apache Kudu and Impala
+
+https://blog.cloudera.com/blog/2019/03/transparent-hierarchical-storage-management-with-apache-kudu-and-impala/
+
+------------------------
 
 ------------------------
 
@@ -616,6 +694,14 @@ https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
 
 #### dataframes
 
+------------------------
+
+https://www.youtube.com/watch?v=HVLPJnvInzM&feature=share
+
+Plumbing is important. Plumbing is difficult. 
+
+------------------------
+
 
 ------------------------
 
@@ -656,6 +742,9 @@ And if you don’t want to watch the talk nor read the posts, just checkout the 
 ------------------------
 
 #### spark
+
+- If you working with Spark, chances are you've read something from Jacek Laskowski, he maintains [a few sites on the internals of Spark or Kafka](https://github.com/jaceklaskowski), these are really good resources relating to underdocumented pieces of code. One fairly recent addition to Spark is bucketing and Jacek [had a nice Spark Summit talk](https://www.youtube.com/watch?v=dv7IIYuQOXI) on the topic.
+
 
 
 ------------------------
@@ -871,8 +960,24 @@ title: Fuzzy search
 
 ------------------------
 
+#### machine learning
+
+- I'm not a huge fan of overhyped parts of ML/AI, so I welcomed [this sober post](https://www.ben-evans.com/benedictevans/2018/06/22/ways-to-think-about-machine-learning-8nefy).
+
+- Learned indexes sound a bit like magic. Instead of being explicitly set up like regular indexes, these are inferred from data and can perform better. But it's better explain by one of the authors, [Tim Kraska](https://www.youtube.com/watch?v=mkIHC7xMSRQ) or perhaps [by Robert Rodgers](https://www.youtube.com/watch?v=0q9mxMekBeE).
+
+- You don't have to have fancy math across all your slides, I much prefer clear talks with good examples. [Robert Rodger's talk on text summarisation](https://www.youtube.com/watch?v=VZ5BEKVxy9k) is just that. I actually saw this one live, it was great.
+
+
+
 ### web dev
 
+
+------------------------
+
+title: Quic
+
+‪HTTP/3 is coming, here’s what’s new. https://youtu.be/izk4nbuzPuU‬
 
 ------------------------
 
@@ -1007,8 +1112,6 @@ https://twitter.com/artemchistyakov/status/953435147034152960
 ## meta
 
 ### learning
-
-------------------------
 
 title: Jak se vzdelavam
 
@@ -1179,6 +1282,9 @@ jupyter more lightweight
 ----
 
 ### cli
+
+https://www.youtube.com/watch?v=qmh7Uppd3x0&feature=share
+
 Git
 Do ker
 Testing
@@ -1328,6 +1434,7 @@ https://www.youtube.com/watch?v=SMSmKg1nApM
 ------------------------
 
 
+EOF
 
 
 
@@ -1350,7 +1457,6 @@ Compilers are awesome
 ---
 
 - I like Joel Grus, he [live streams himself live coding Advent of Code](https://www.youtube.com/watch?v=VPXXthwAdg8&list=PLeDtc0GP5ICklPBnoZ0fdrw130hxI6_b3), he has written a cool book on Data Science (the second edition [has just been released](https://www.oreilly.com/library/view/data-science-from/9781492041122/)) and... he [doesn't like Jupyter notebooks](https://www.youtube.com/watch?v=7jiPeIFXb6U). It's a good thing that this is talked about, because notebooks are almost universally praised, but people should know about the downsides, too.
-- If you working with Spark, chances are you've read something from Jacek Laskowski, he maintains [a few sites on the internals of Spark or Kafka](https://github.com/jaceklaskowski), these are really good resources relating to underdocumented pieces of code. One fairly recent addition to Spark is bucketing and Jacek [had a nice Spark Summit talk](https://www.youtube.com/watch?v=dv7IIYuQOXI) on the topic.
 - There are tons of interesting data structures and algorithms, Nicholas Ormrod covers a few of them in [this great CppCon talk](https://www.youtube.com/watch?v=YA-nB2wjVcI). I highly recommend the last part where he talks about [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an algorithm which is very close to magic. Oh and I also gave a talk on HyperLogLog and similar algorithms at [this year's PyData Amsterdam](https://www.youtube.com/watch?v=8Ean3Bx_o_M).
 - I've been compiling these lists of links based on my notes and one of my notes says just "Chandler Carruth". Not sure if I was referring to a specific talk, but I watched [nearly all his talks from CppCons](https://www.youtube.com/results?search_query=chandler+carruth), because his captivating narrative is really fun to watch. I don't write any C++, but the principles covered in these talks are mostly universal.
 ---
@@ -1361,25 +1467,16 @@ date: 2019-11-09T07:03:53+02:00
 
 ---
 
-- Code reviews are essential, but that doesn't mean we have to do PEP8 and other code quality checks by hand. [Automate these away as much as possible.](https://www.youtube.com/watch?v=G1lDk_WKXvY)
-- Dependency management is hard. Here are [a few notes from the creator of pipenv](https://www.youtube.com/watch?v=GBQAKldqgZs). I'm still not entirely sold on pipenv, but I do tend to use it, because it's nicely built into our deployment flow.
+
 - The one and only Jake VanderPlas and [his tips and tricks regarding well performing numerical code in Python](https://www.youtube.com/watch?v=zQeYx87mfyw).
-- Learned indexes sound a bit like magic. Instead of being explicitly set up like regular indexes, these are inferred from data and can perform better. But it's better explain by one of the authors, [Tim Kraska](https://www.youtube.com/watch?v=mkIHC7xMSRQ) or perhaps [by Robert Rodgers](https://www.youtube.com/watch?v=0q9mxMekBeE).
 
 ---
 
 
 
 
----
-- You don't have to have fancy math across all your slides, I much prefer clear talks with good examples. [Robert Rodger's talk on text summarisation](https://www.youtube.com/watch?v=VZ5BEKVxy9k) is just that. I actually saw this one live, it was great.
 
 - I'm not a huge fan of dependencies, I like to have functionality baked into the runtime that I'm using and only choose a handful of must-have dependencies, I have my reasons. And I'm not the only one, [here's a good post](https://todd.ginsberg.com/post/the-art-of-picking-dependencies/) on picking dependencies responsibly.
-- TDD has become almost a religion. Here's a great talk on [where it all went wrong](https://www.youtube.com/watch?v=EZ05e7EMOLM). Ian Cooper covers the origins - like red-green-refactor - but also the bad practices we've come to adopt, the most prominent one being that we tend to test implementations rather than behaviour. Once you factor in your implementation details into your test, you've deviated from the original idea of TDD.
----
-title: "Assorted tech links #6"
-date: 2019-09-30T07:03:53+02:00
----
 
 
 ---
@@ -1398,21 +1495,10 @@ date: 2019-10-14T07:03:53+02:00
 
 ---
 
-- I'm not a huge fan of overhyped parts of ML/AI, so I welcomed [this sober post](https://www.ben-evans.com/benedictevans/2018/06/22/ways-to-think-about-machine-learning-8nefy).
 - Not everything has to be centralised. This is one of the rarest use cases for complex technology, Chick-fil-A installed Kubernetes at the edge, since the internet is unstable (plus a few other reasons). There's [an article](https://medium.com/@cfatechblog/edge-computing-at-chick-fil-a-7d67242675e2) and [a video with slides](https://www.infoq.com/presentations/chick-fil-a-k8-clusters).
 - Lessons learned from [a Kubernetes outage at Monzo](https://www.youtube.com/watch?v=OUYTNywPk-s). And it's not the only Kubernetes post mortem, there's [a whole list of them](https://github.com/hjacobs/kubernetes-failure-stories).
 - Crash early, crash often. [Good tips](https://medium.com/@mattklein123/crash-early-and-crash-often-for-more-reliable-software-597738dd21c5) from the author of [Envoy](https://www.envoyproxy.io/).
 - [Linear models are awesome](https://youtu.be/68ABAU_V8qI), I’m glad someone can explain that with such rigour. Also, I thought I had too many slides, but I just witnessed Vincent go through 145 slides in 35 minutes.
-
-
----
-
-- A great talk by the creator of Node.js. [What he regrets and what he’d do differently.](https://youtu.be/M3BM9TB-8yA)
-
----
-title: "Assorted tech links #9"
-date: 2019-12-02T07:03:53+02:00
----
 
 
 ---
@@ -1436,19 +1522,6 @@ I teach Python and I often struggle when explaining decorators, [this talk](http
 
 kafka definitive guide
 
-
-------------------------
-
-------------------------
-
-------------------------
-
-title: Transparent Hierarchical Storage Management with Apache Kudu and Impala
-
-https://blog.cloudera.com/blog/2019/03/transparent-hierarchical-storage-management-with-apache-kudu-and-impala/
-
-------------------------
-
 ------------------------
 
 https://www.youtube.com/watch?v=4P_kbF0EbZM&feature=share
@@ -1457,49 +1530,9 @@ This is fadcinating https://youtu.be/kw-U6smcLzk
 
 ------------------------
 
-
-
-
-------------------------
-
-------------------------
-
 https://www.youtube.com/watch?v=yvBR71D0nAQ&feature=share
 
 ------------------------
-
-------------------------
-
-title: Occasional productivity
-
-- be like bob
-- Done betrer than perfect
-- Ugly python video from pycon
-- Will you ever need to change this? Then it doesnt need tests or grooming
-
-------------------------
-
-
-------------------------
-
-title: kafka zookeeper
-
-I've been looking forward to Kafka dropping Zookeeper and always viewed the change as just swapping a part. Turns out there are good reasons other than simplifying deployment. This is a good talk on that. https://www.youtube.com/watch?v=3qNNinbnWmw
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=6uAvHOKofws&feature=share
-
-A really nicentalk aboutnthe walrus operator, but also about being nice on the internet and about the governance model of python
-
-------------------------
-
-
-
-------------------------
-
 “Speed [of work] is not the goal, it’s a by product” 
 https://youtu.be/w008iz_UwDk
 
@@ -1517,13 +1550,6 @@ https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share
 
 ------------------------
 
-------------------------
-
-title: Reading postmortems
-
-https://danluu.com/postmortem-lessons/
-
-------------------------
 
 
 
@@ -1534,15 +1560,7 @@ https://www.youtube.com/watch?v=kIoZDUd5DKw&feature=share
 ------------------------
 
 
-------------------------
 
-title: Things I Learnt The Hard Way (in 30 Years of Software Development)
-
-https://blog.juliobiason.net/thoughts/things-i-learnt-the-hard-way/
-
-Dear new devs
-
-------------------------
 
 ------------------------
 
@@ -1550,73 +1568,6 @@ title: Geoshards, hilbert curves
 
 Has part two
 https://medium.com/tinder-engineering/geosharded-recommendations-part-1-sharding-approach-d5d54e0ec77a
-
-------------------------
-
-
-
-------------------------
-
-title: Technical papers #2
-
-"I want more!" I hear you say. Here are three more papers, which are more recent, but have gained some traction already.
-
-2. Millions of tiny databases - Amazon runs exabytes of storage for their customers and it turns out that running replicated storage reliably is quite hard and it calls for unorthodox solutions. https://assets.amazon.science/c4/11/de2606884b63bf4d95190a3c2390/millions-of-tiny-databases.pdf
-3. The Network is Reliable - we sometimes take things for granted - things like the network or disk availability. This paper's co-author, Kyle Kingsbury, is known for stress testing distributed systems and finding major faults in their consistency guarantees. He publishes great papers himself, has really interesting talks on YouTube and really does offer great content. https://queue.acm.org/detail.cfm?id=2655736
-
-------------------------
-
-
-
-------------------------
-
-title: PyData about infrastructure
-
-Opinions (c) about data infrastructure
-
-- choose boring technology (database, object storage, message queues, python)
-
-- database
- - think of all the guarantees it gives you
-  - schema on write, foreign keys, checks, transactions (!!!)
-  - are you willing to forgo these just because you think your data is big?
-  - there's a difference between having a database and implementing it though! it's still quite complex
-  - READ MARTIN KLEPPMANN! There are oh so many things that can go wrong
-- [PSI]aaS vs. building vs. hosted OSS
- - hosted OSS tends to be best, you can still do local testing (oh boy)
- - but be careful if you need bleeding edge
- - SaaS can raise prices 10x, just by being in a different price bracket
-
-- Do you need to replicate data between data storages? Have you succeeded? How many are there? Sure, neo4j is cool, but isn't pg enough?
-- Can you draw your infrastructure?
-- Can you hire developers to work on your stack?
-- How long does a deploy take?
-- How often does a deploy brake?
-- Can you run your infrastructure locally? (pg, mq, )
-- Which brings me to docker - just because it's dockerized doesn't mean it's simple. It's just easy.
-- Easy vs. simple
-- This also means you should be careful about python package dependencies
-- But I need 100M things per day!!! You can, that's just 1000/second
-- building a new pipeline? Check what the feature needs are and what the SLA (timing) is - build a prototype that breaks these, but don't build complex infrastructure just for this. Fail early.
-
-- Will your code run in five years? Five days?
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=_NKQX-TdNMc&feature=share
-
-It’s a bit annoying that Go can’t mock, so you have to do all this interface kungfu. But at least it’s more explicit. 
-
-------------------------
-
-
-------------------------
-
-This is a nice and concise overview of parallel computing primitives in Python. Be it processes, threads, workers or coroutines. https://youtu.be/0RaotdCa_j0
-
-------------------------
 
 
 ------------------------
@@ -1637,35 +1588,6 @@ https://www.youtube.com/watch?v=JfjiFsJsO4E
 
 
 
-------------------------
-
-title: reaching for the top
-
-you can have expected value pretty high with very low volatility
-
-or you can reach for the top - prime numbers (my almost failing uni), deciphering easter island manuscripts (see eg. https://globalnews.ca/news/3984789/voynich-manuscript-computer-decipher-alberta/)
-
-------------------------
-
-
-------------------------
-
-https://www.youtube.com/watch?v=YnWhqhNdYyk&feature=share
-
-Who teaches teachers? Kate grgory
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=qmh7Uppd3x0&feature=share
-
-I learned something new, as always
-
-------------------------
-
-
-
 I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
 
 http://veekaybee.github.io/2019/05/10/java8/
@@ -1681,18 +1603,6 @@ Bryan Cantrill tends to get excited about stuff. Here he [talks about various la
 
 DynamoDB is amongst the better known NoSQL offerings, but being proprietary, we don't usually get to find out a lot about their architecture. Here, apart from [the Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf), there's a nice architectural overview [from last year's AWS re:Invent](https://www.youtube.com/watch?v=yvBR71D0nAQ&feature=share).
 
-Rustaceans tend to be quite... enthusiastic, but this is a good, somber [overview of borrower and mutex primitives](https://youtu.be/s19G6n0UjsM).
-
-Python wheels are still magic to me, but they are a tiny bit less magic now, [thanks to this PyCon talk](https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share).
-
-I've only written tiny bits of C++ and I was quite surprised how it differs from the C/C++ code I saw years and years ago. And here's [Kate Gregory talking](https://www.youtube.com/watch?v=YnWhqhNdYyk&feature=share) about how modern C++ should be taught as exactly that, modern C++.
-
-
-There's a walrus operator coming in Python 3.8. Do you not know? [Here's not only what it is](https://www.youtube.com/watch?v=6uAvHOKofws&feature=share), but also a reminder that we should be nice to other people on the internet, and what's changing in terms of Python governance.
-
-
-kafka definitive guide
-
 ------------------------
 
 title: hash storage issues
@@ -1705,63 +1615,9 @@ screenshot!
 
 https://www.youtube.com/watch?v=NF0CY43GYKU&feature=share
 
-------------------------
-
-
-title: Quic
-
-‪HTTP/3 is coming, here’s what’s new. https://youtu.be/izk4nbuzPuU‬
-
-------------------------
-
-------------------------
-
-title: responsible regular expressions
-
-xkcd comic
-take these with a grain of salt, always benchmark yourself
-this highly depends on your regexp implementation
-
-exrex
-
-------------------------
-
-------------------------
-
-title: JSONL + jq  = <3
-
-head data.json | jq
-
-head data.json | jq '.element'
-
-kokeso:milion ondrej.kokes$ cat data/pages/2018-01-19.json | jq '. | select(.name | contains("Amazon"))'
-
-kokeso:milion ondrej.kokes$ cat data/pages/2018-01-19.json | jq '. | select(.name | contains("Amazon")) | .name'
-
--c returns JSONL
-
-etc.
-
-------------------------
-
-
-
-------------------------
-
-
-
-
-------------------------
+---
 
 https://www.youtube.com/watch?v=jvwfDdgg93E&feature=share
-
-------------------------
-
-
-
-
-
-
 
 ------------------------
 
@@ -1772,15 +1628,6 @@ Accessibility is rather important and it doesn't take a PhD to do at least some 
 ------------------------
 
 
-------------------------
-
-title: Crash early and crash often for more reliable software
-
-https://medium.com/@mattklein123/crash-early-and-crash-often-for-more-reliable-software-597738dd21c5
-
-Sont do try except pass
-
-------------------------
 
 ------------------------
 
@@ -1793,17 +1640,6 @@ https://www.youtube.com/watch?v=XelrzDtEnPY&feature=share
 
 Dealing with dimensionality in an interesting way
 
-------------------------
-
-
-
-
-
-https://www.youtube.com/watch?v=HVLPJnvInzM&feature=share
-
-Plumbing is important. Plumbing is difficult. 
-
-------------------------
 
 
 
