@@ -2,6 +2,9 @@
 
 ### perf
 
+- Instructions can be essentially free [if you're waiting for your memory to catch up](https://www.youtube.com/watch?v=jEG4Qyo_4Bc&feature=share). Here's [a bit of a deep dive](https://www.youtube.com/watch?v=BP6NxVxDQIs) from a past CppCon. And [here's how you measure it](https://www.youtube.com/watch?v=nXaxk27zwlk&feature=youtu.be), by Chandler Carruth, one of my favourite speakers.
+
+
 https://twitter.com/pndrej/status/1247620953900748802?s=12
 
 ------------------------
@@ -210,17 +213,6 @@ Wheels are still magic, but less so
 
 ------------------------
 
-
-
-
-------------------------
-
-https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share
-
-I teach python, but its quite hard for me to explain decorators - this is angood one
-
-------------------------
-
 ------------------------
 
 ‪I knew that CPython can efficiently concatenate strings, despite their immutability. I never knew why, thanks for this explanation. https://blog.ganssle.io/articles/2019/11/string-concat.html‬
@@ -386,6 +378,9 @@ Never knew this whole area even existed as a thing
 
 
 #### data structures
+
+- There are tons of interesting data structures and algorithms, Nicholas Ormrod covers a few of them in [this great CppCon talk](https://www.youtube.com/watch?v=YA-nB2wjVcI). I highly recommend the last part where he talks about [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an algorithm which is very close to magic. Oh and I also gave a talk on HyperLogLog and similar algorithms at [this year's PyData Amsterdam](https://www.youtube.com/watch?v=8Ean3Bx_o_M).
+
 
 ------------------------
 
@@ -1386,11 +1381,14 @@ coc looks cool - also via vim-plug
 
 ### tmux
 bind e set -g synchronize-panes
-    ~/.tmux.conf
-   lets you toggle pane synchronisation (see asottile's talk on tmux)
+	~/.tmux.conf
+    lets you toggle pane synchronisation (see asottile's talk on tmux)
 
 
 ## hardware
+
+I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
+
 
 ------------------------
 
@@ -1457,13 +1455,6 @@ Compilers are awesome
 ---
 
 - I like Joel Grus, he [live streams himself live coding Advent of Code](https://www.youtube.com/watch?v=VPXXthwAdg8&list=PLeDtc0GP5ICklPBnoZ0fdrw130hxI6_b3), he has written a cool book on Data Science (the second edition [has just been released](https://www.oreilly.com/library/view/data-science-from/9781492041122/)) and... he [doesn't like Jupyter notebooks](https://www.youtube.com/watch?v=7jiPeIFXb6U). It's a good thing that this is talked about, because notebooks are almost universally praised, but people should know about the downsides, too.
-- There are tons of interesting data structures and algorithms, Nicholas Ormrod covers a few of them in [this great CppCon talk](https://www.youtube.com/watch?v=YA-nB2wjVcI). I highly recommend the last part where he talks about [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an algorithm which is very close to magic. Oh and I also gave a talk on HyperLogLog and similar algorithms at [this year's PyData Amsterdam](https://www.youtube.com/watch?v=8Ean3Bx_o_M).
-- I've been compiling these lists of links based on my notes and one of my notes says just "Chandler Carruth". Not sure if I was referring to a specific talk, but I watched [nearly all his talks from CppCons](https://www.youtube.com/results?search_query=chandler+carruth), because his captivating narrative is really fun to watch. I don't write any C++, but the principles covered in these talks are mostly universal.
----
-title: "Assorted tech links #3"
-date: 2019-11-09T07:03:53+02:00
----
-
 
 ---
 
@@ -1481,7 +1472,6 @@ date: 2019-11-09T07:03:53+02:00
 
 ---
 
-- Instructions can be essentially free [if you're waiting for your memory to catch up](https://www.youtube.com/watch?v=jEG4Qyo_4Bc&feature=share). Here's [a bit of a deep dive](https://www.youtube.com/watch?v=BP6NxVxDQIs) from a past CppCon. And [here's how you measure it](https://www.youtube.com/watch?v=nXaxk27zwlk&feature=youtu.be), by Chandler Carruth, one of my favourite speakers.
 - I've gotten into the habit of writing post mortems whenever I screw up. This came from reading [Dan Luu's writeup](https://danluu.com/postmortem-lessons/). There's also an accompanying repo with [a list of post mortems](https://github.com/danluu/post-mortems).
 - This is a bit dated video [about the future of pandas](https://www.youtube.com/watch?v=_-gJtO0XR48) but some of it still applies and it goes to show that it's still evolving and that there are changes to come.
 - We're all used to REST now, but GRPC is making strides. Here's [a good overview](https://youtu.be/RoXT_Rkg8LA) of how it differs from REST, WSDL, Thrift etc.
@@ -1505,7 +1495,6 @@ date: 2019-10-14T07:03:53+02:00
 
 - I tried out Presto for a few workloads and I was incredibly impressed. It's a great piece of software and [this video](https://www.youtube.com/watch?v=Z2C-iYNm2wU) offers a really nice overview of its architecture and how it differs from Spark.
 
-I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
 
 http://veekaybee.github.io/2019/05/10/java8/
 
@@ -1514,13 +1503,6 @@ http://veekaybee.github.io/2019/05/10/java8/
 > That is, machine learning doesn't have to match experts or decades of experience or judgement. We’re not automating experts. Rather, we’re asking ‘listen to all the phone calls and find the angry ones’. ‘Read all the emails and find the anxious ones’. ‘Look at a hundred thousand photos and find the cool (or at least weird) people’. 
 
 [Here's an excellent PSA.](https://twitter.com/brendandburns/status/1007350396078075904)
-
-Python wheels are still magic to me, but they are a tiny bit less magic now, [thanks to this PyCon talk](https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share).
-
-I teach Python and I often struggle when explaining decorators, [this talk](https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share) is a great overview of not just what they are, but also *why* they work.
-
-
-kafka definitive guide
 
 ------------------------
 
@@ -1538,20 +1520,12 @@ https://youtu.be/w008iz_UwDk
 
 ------------------------
 
-------------------------
-
 https://podcasts.apple.com/cz/podcast/the-changelog/id341623264?i=1000440755325
 
 ------------------------
 
-------------------------
 
 https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share
-
-------------------------
-
-
-
 
 ------------------------
 
@@ -1576,8 +1550,6 @@ https://www.youtube.com/watch?v=PorfLSr3DDI&feature=share
 
 ------------------------
 
-------------------------
-
 title: Programming should be responsible
 
 To the environment, to the people of the world (bandwidth) etc.
@@ -1596,8 +1568,6 @@ http://veekaybee.github.io/2019/05/10/java8/
 
 > That is, machine learning doesn't have to match experts or decades of experience or judgement. We’re not automating experts. Rather, we’re asking ‘listen to all the phone calls and find the angry ones’. ‘Read all the emails and find the anxious ones’. ‘Look at a hundred thousand photos and find the cool (or at least weird) people’. 
 
-
-[Here's an excellent PSA.](https://twitter.com/brendandburns/status/1007350396078075904)
 
 Bryan Cantrill tends to get excited about stuff. Here he [talks about various languages](https://youtu.be/HgtRAbE1nBM) and why he likes Rust. Oh and [here as well](https://www.youtube.com/watch?v=2wZ1pCpJUIM). I also enjoyed his talk on [growing teams](https://www.youtube.com/watch?v=1KeYzjILqDo).
 
