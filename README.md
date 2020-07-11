@@ -78,6 +78,45 @@ it has a transcript https://www.infoq.com/presentations/simdjson-parser/
 
 #### rust
 
+
+------------------------
+
+title: Initial reactions to Rust
+
+Bryan Cantrill got me hooked (link?)
+  He r commends learning the language, not writing code, might be a food idea
+
+Better std::collections
+i128
+generics (they require tooling for quality intellisense, vs code is failing me)
+better optimisation (llvm)
+similarly bad ecosystem as go
+generally better performant libraries (csv)
+interesting error handling
+better than go: iterators <3 hashsets <3
+
+march native
+
+the compiler is very helpful in telling you what you did wrong (of which you'll do a lot)
+it moves way too fast for my liking - much faster than go
+
+the docs are quite elaborate, but also confusing (e.g. the function signatures)
+
+hashmap.entry(line.clone()).or_insert(1);
+   SOO NICE, just like python
+
+accumulators etc.
+
+mutable strings - in go I have zero control over allocations when creating 
+
+strings (they are omitted in some map accesses though)
+
+Incl str!!!
+
+BUUUUT, it's super complex and moves fast
+
+------------------------
+
 ------------------------
 
 title: Falling in love with Rust
@@ -138,6 +177,39 @@ C++ has come a looong way. But also means its difficykt af
 
 #### Python
 
+I teach Python and I often struggle when explaining decorators, [this talk](https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share) is a great overview of not just what they are, but also *why* they work.
+
+
+
+
+------------------------
+
+https://www.youtube.com/watch?v=-WDV0-OB4fE&feature=share
+
+Well paced explanation of setup.py and pypi
+
+------------------------
+
+
+------------------------
+
+https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share
+
+Wheels are still magic, but less so
+
+------------------------
+
+
+
+
+------------------------
+
+https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share
+
+I teach python, but its quite hard for me to explain decorators - this is angood one
+
+------------------------
+
 ------------------------
 
 ‪I knew that CPython can efficiently concatenate strings, despite their immutability. I never knew why, thanks for this explanation. https://blog.ganssle.io/articles/2019/11/string-concat.html‬
@@ -185,6 +257,12 @@ Many difference between py2 and 3s, not really how they migrated :(
 
 #### Go
 
+A very nice and clear explanation of [how maps are implemented in Go](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics).
+
+
+------------------------
+
+
 https://www.youtube.com/watch?v=kNHo788oO5Y&feature=share
 
 ------------------------
@@ -201,6 +279,8 @@ It's quite a nice discussion that helps people understand the toolchain. It also
 
 
 #### webassembly
+
+https://www.youtube.com/watch?v=UtjoaTfbdcA&feature=share
 
 ------------------------
 
@@ -227,6 +307,12 @@ Averaging is not as easy as i thought
 
 
 #### architecture
+
+- I love to listen to data architecture descriptions and I love it ever more when the bottom line is: we just use Postgres (usually heavily partitioned). There are a few podcast episodes on these, there's [Outlier](https://softwareengineeringdaily.com/2018/06/29/data-engineering-automation-with-mike-kim/), [Pex](https://softwareengineeringdaily.com/2018/06/22/video-search-with-rasty-turek/) or [Heap](https://www.dataengineeringpodcast.com/heap-with-dan-robinson-episode-36/).
+
+
+1. Firecracker - isolation is not just about Docker, because security and performance are two major areas of research in container isolation. Firecracker is an OSS offering from Amazon, which they already use in Lambda and the main ruse is that it allows for extremely low latency and low utilisation of resources. https://www.amazon.science/publications/firecracker-lightweight-virtualization-for-serverless-applications
+
 
 ------------------------
 
@@ -281,6 +367,16 @@ Never knew this whole area even existed as a thing
 
 
 #### data structures
+
+------------------------
+
+https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share
+
+
+
+
+------------------------
+
 
 A very nice and clear explanation of [how maps are implemented in Go](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics).
 
@@ -378,14 +474,79 @@ http://calpaterson.com/mypy-hints.html
 
 ------------------------
 
-#### language features
+#### software development
 
-I teach Python and I often struggle when explaining decorators, [this talk](https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share) is a great overview of not just what they are, but also *why* they work.
+- I expected a dry talk on code reviews and it ended up being [a really nice overview of culture, soft skills, helping newcomers, dealing with anxiety, GTD etc](https://youtu.be/iNG1a--SIlk).
+- Forget PEP8, version control, reviews or tests. No bash, subprocess run all the things, just good old sloppy code that *solves your problem*. [Super fast and excellent](https://www.youtube.com/watch?v=Jd8ulMb6_ls).
+
+
+https://www.youtube.com/watch?v=MYucYon2-lk&feature=share
+
+------------------------
+
+title: TDD where did it go wrong
+
+------------------------
+
+
+- I can highly recommend all of Kyle Kingsbury's talks. He built this testing suite, Jepsen, which verifies data stores and checks them for consistency guarantees, data loss, split brain, dirty reads, ... Oh and [this talk](https://www.youtube.com/watch?v=tRc0O9VgzB0) includes zings like “Turns out the write ahead log wasn’t write ahead.” If you're not fluent in this terminology, I can highly recommend [Martin Kleppmann's book](http://dataintensive.net/).
+
+
+------------------------
+
+title: Writing system software: code comments. - <antirez>
+
+http://antirez.com/news/124
+
+------------------------
+
+------------------------
+
+title: The Skills Poor Programmers Lack
+
+https://justinmeiners.github.io/the-skills-programmers-lack/
+
+------------------------
 
 
 ### data
 
 #### architecture, engineering
+
+------------------------
+
+title: ongoing by Tim Bray · On Sharding
+
+https://www.tbray.org/ongoing/When/201x/2019/09/25/On-Sharding
+
+Sharding is hard
+
+------------------------
+
+------------------------
+
+https://www.youtube.com/watch?v=BuE6JvQE_CY&feature=share
+
+Luckily the answer is not quite. 
+
+law of headlines
+
+------------------------
+
+
+------------------------
+
+title: map reduce paper
+
+the map reduce paper is super easy to read and there are tons of things I like about it
+- it's driven by a real need (compute a lot of stuff)
+- it uses commodity hardware, which later enabled thousands of developers worldwide to leverage the methodology
+- they describe a system of backup tasks that fix the issue of outliers taking ages to complete
+- they focus on the fact that the system allows for a much simplified computing model - people without the knowledge of distributed computing can write massively paralelised workloads - in a way it's similar to SQL
+
+https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
+
+------------------------
 
 ------------------------
 
@@ -455,6 +616,15 @@ https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
 
 #### dataframes
 
+
+------------------------
+
+title: Careful about pandas
+
+https://www.youtube.com/watch?list=PLGVZCDnMOq0oqs6RTJk4zZde86DZrgnzm&v=_-gJtO0XR48
+
+------------------------
+
 ------------------------
 
 https://www.youtube.com/watch?v=2Tt0i823-ec&feature=share
@@ -487,6 +657,23 @@ And if you don’t want to watch the talk nor read the posts, just checkout the 
 
 #### spark
 
+
+------------------------
+
+title: Initial thoughts on Spark
+
+scales better than pandas, that's great
+api changes dramatically and fast - hard to adapt
+learning scala is painful - seems like learning lua for torch - luckily PySpark is very good and outside rdd, the performance is great
+lazy evaluation is fine, but it's hard to debug
+locally, it's much slower
+predicate pushdown is fantastic, but drill has that too
+stack traces by default? I want normal logging
+single-node setup is a breeze, unlike presto and other big data solutions
+ too many ways you can do stuff - select a dataframe column in eight different ways
+
+------------------------
+
 spark cannot write to s3 in v4 only regions
     also, it cannot use aws by default
 
@@ -497,6 +684,35 @@ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,
     https://kokes.github.io/blog/2020/06/22/apache-spark-pyspark-s3.html
 
 #### databases
+
+------------------------
+
+title: pg 13
+
+Interesting things coming to postgres 12, further partitioning improvements, better JSON support, but mainly some internal changes that allow for pluggable storage, which is likely to be user-facing in pg13 https://www.youtube.com/watch?v=VMLl-t4H_KI
+
+------------------------
+
+I’m a sucker for database internals talks. Here’s a very clear talk about InfluxDB - memory layout, on disk serialisation, compression, hashing.
+
+https://www.youtube.com/watch?v=rtEalnKT25I&feature=emb_logo
+
+
+------------------------
+
+------------------------
+
+title: Postgres is great
+
+And I did learn something - RETURNING within a CTE looks cool.
+
+I'd recommend everyone to use window functions and generate_series though.
+
+https://www.youtube.com/watch?v=HWfxUvW1ejw
+
+------------------------
+
+https://remusao.github.io/posts/2017-10-21-few-tips-sqlite-perf.html
 
 ------------------------
 
@@ -657,6 +873,15 @@ title: Fuzzy search
 
 ### web dev
 
+
+------------------------
+
+https://www.youtube.com/watch?v=1jD7dBsg_Nw&feature=share
+
+Gone are the days where we’d tell the server about encoding, mime types and compression. There are tons of things you can convey these days. 
+
+------------------------
+
 ------------------------
 
 https://www.youtube.com/watch?v=AdNJ3fydeao&feature=share
@@ -706,6 +931,24 @@ Modern developers should know more than just code, they should know devops as we
 
 ### deployment
 
+------------------------
+
+https://www.youtube.com/watch?v=KqTySYYhPUE&feature=share
+
+There is lots of infrastructure needed for reproducible and safe builds in an OSS world. Here’s Go’s solution. 
+
+
+
+------------------------
+
+Compiler Explorer: Behind the Scenes - always a pleasure listening to Matt Godbolt's talks.
+
+https://www.youtube.com/watch?v=kIoZDUd5DKw
+
+
+------------------------
+
+
 Matt Godbolt is another of my favourite speakers, here's [a talk mostly about compilers](https://youtu.be/bSkpMdDe4g4?t=2852), but also about his super popular site, [Compiler Explorer](https://godbolt.org/), how it works, what resources it needs (it seems ridiculously efficient), how it does isolation, security etc.
 
 ---
@@ -742,6 +985,9 @@ Kubernetes failure stories github
 
 ### containers
 
+- Building containters from scratch. Like, from basically nothing. [It's very clear, well paced, instructive.](https://www.youtube.com/watch?v=8fi7uSYlOdc)
+
+
 ------------------------
 
 title: Intro Guide to Dockerfile Best Practices
@@ -761,6 +1007,19 @@ https://twitter.com/artemchistyakov/status/953435147034152960
 ## meta
 
 ### learning
+
+------------------------
+
+title: Jak se vzdelavam
+
+Datanews mail digesty
+HN dvakrat denne
+Pocket
+Podcasty
+Oreilly knihy
+RSS
+
+----
 
 There is a great resource for technical insight, one that is more in depth than most blog posts, but shorter than books - technical papers! These can be in an academic setting, proceedings for a conference, or purely just a business sharing their insight about a given topic.
 
@@ -807,6 +1066,18 @@ https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
 
 ### legacy software
 
+- With Python 2 about to be deprecated, there are a few talks about migration to Python 3. There's Facebook's take [from PyCon 2018](https://youtu.be/H4SS9yVWJYA) and Instagram's [from PyCon 2017](https://www.youtube.com/watch?v=66XoCk79kjM). Oh and the most recent now - how [Pinterest did the same](https://www.youtube.com/watch?v=e1vqfBEAkNA&feature=share) - it's a bit more about the code differences rather than how they actually migrated.
+
+
+
+------------------------
+
+title: Lessons from 6 software rewrite stories
+
+https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22
+
+------------------------
+
 - Rewriting software always leads to broken deadlines, new bugs everywhere, reinventing the wheels etc. I've done this a few times and it was always the same. Here's [a good overview of how a lot larger rewrites turned out](https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22).
 
 
@@ -830,13 +1101,6 @@ https://www.youtube.com/watch?v=YsMUlNGF1no
 
 ------------------------
 
-------------------------
-
-title: Lessons from 6 software rewrite stories
-
-https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22
-
-------------------------
 
 ### public speaking
 
@@ -1022,6 +1286,19 @@ bind e set -g synchronize-panes
 
 ## hardware
 
+------------------------
+
+tpu on a bike
+
+https://www.youtube.com/watch?v=UmDeKDgFRj4&feature=share
+
+------------------------
+
+
+title: Radiolab bit flip
+
+---
+
 - I saw this quite a while ago, but I remember it being quite cool. Scott Hansleman is diabetic, but doesn't like the commercial hardware and software used to track his blood sugar level. [He talks at length about making is own, open device](https://www.youtube.com/watch?v=uNhYhlBQoEY), with a gazillion caveats, of course.
 
 
@@ -1033,6 +1310,14 @@ bind e set -g synchronize-panes
 
 
 ## random
+
+------------------------
+
+https://www.youtube.com/watch?v=H62hZJVqs2o&feature=share
+
+This is why I love Strange Loop. This is “a guy” talking about the Voyager probes and why they managed 40+ years of uptime. 
+
+------------------------
 
 ------------------------
 
@@ -1080,29 +1365,15 @@ date: 2019-11-09T07:03:53+02:00
 - Dependency management is hard. Here are [a few notes from the creator of pipenv](https://www.youtube.com/watch?v=GBQAKldqgZs). I'm still not entirely sold on pipenv, but I do tend to use it, because it's nicely built into our deployment flow.
 - The one and only Jake VanderPlas and [his tips and tricks regarding well performing numerical code in Python](https://www.youtube.com/watch?v=zQeYx87mfyw).
 - Learned indexes sound a bit like magic. Instead of being explicitly set up like regular indexes, these are inferred from data and can perform better. But it's better explain by one of the authors, [Tim Kraska](https://www.youtube.com/watch?v=mkIHC7xMSRQ) or perhaps [by Robert Rodgers](https://www.youtube.com/watch?v=0q9mxMekBeE).
----
-title: "Assorted tech links #4"
-date: 2020-05-27T07:03:55+02:00
----
-
 
 ---
 
-- With Python 2 about to be deprecated, there are a few talks about migration to Python 3. There's Facebook's take [from PyCon 2018](https://youtu.be/H4SS9yVWJYA) and Instagram's [from PyCon 2017](https://www.youtube.com/watch?v=66XoCk79kjM). Oh and the most recent now - how [Pinterest did the same](https://www.youtube.com/watch?v=e1vqfBEAkNA&feature=share) - it's a bit more about the code differences rather than how they actually migrated.
-- I expected a dry talk on code reviews and it ended up being [a really nice overview of culture, soft skills, helping newcomers, dealing with anxiety, GTD etc](https://youtu.be/iNG1a--SIlk).
-- Forget PEP8, version control, reviews or tests. No bash, subprocess run all the things, just good old sloppy code that *solves your problem*. [Super fast and excellent](https://www.youtube.com/watch?v=Jd8ulMb6_ls).
-- This is [a useful reminder](https://blog.jooq.org/2019/04/09/the-difference-between-sqls-join-on-clause-and-the-where-clause/) that where conditions in SQL are quite different from conditions on joins.
 
----
-title: "Assorted tech links #5"
-date: 2019-09-09T07:03:53+02:00
----
 
 
 ---
-
 - You don't have to have fancy math across all your slides, I much prefer clear talks with good examples. [Robert Rodger's talk on text summarisation](https://www.youtube.com/watch?v=VZ5BEKVxy9k) is just that. I actually saw this one live, it was great.
-- Building containters from scratch. Like, from basically nothing. [It's very clear, well paced, instructive.](https://www.youtube.com/watch?v=8fi7uSYlOdc)
+
 - I'm not a huge fan of dependencies, I like to have functionality baked into the runtime that I'm using and only choose a handful of must-have dependencies, I have my reasons. And I'm not the only one, [here's a good post](https://todd.ginsberg.com/post/the-art-of-picking-dependencies/) on picking dependencies responsibly.
 - TDD has become almost a religion. Here's a great talk on [where it all went wrong](https://www.youtube.com/watch?v=EZ05e7EMOLM). Ian Cooper covers the origins - like red-green-refactor - but also the bad practices we've come to adopt, the most prominent one being that we tend to test implementations rather than behaviour. Once you factor in your implementation details into your test, you've deviated from the original idea of TDD.
 ---
@@ -1132,16 +1403,10 @@ date: 2019-10-14T07:03:53+02:00
 - Lessons learned from [a Kubernetes outage at Monzo](https://www.youtube.com/watch?v=OUYTNywPk-s). And it's not the only Kubernetes post mortem, there's [a whole list of them](https://github.com/hjacobs/kubernetes-failure-stories).
 - Crash early, crash often. [Good tips](https://medium.com/@mattklein123/crash-early-and-crash-often-for-more-reliable-software-597738dd21c5) from the author of [Envoy](https://www.envoyproxy.io/).
 - [Linear models are awesome](https://youtu.be/68ABAU_V8qI), I’m glad someone can explain that with such rigour. Also, I thought I had too many slides, but I just witnessed Vincent go through 145 slides in 35 minutes.
----
-title: "Assorted tech links #8"
-date: 2019-11-11T07:03:53+02:00
----
 
 
 ---
 
-- I love to listen to data architecture descriptions and I love it ever more when the bottom line is: we just use Postgres (usually heavily partitioned). There are a few podcast episodes on these, there's [Outlier](https://softwareengineeringdaily.com/2018/06/29/data-engineering-automation-with-mike-kim/), [Pex](https://softwareengineeringdaily.com/2018/06/22/video-search-with-rasty-turek/) or [Heap](https://www.dataengineeringpodcast.com/heap-with-dan-robinson-episode-36/).
-- I can highly recommend all of Kyle Kingsbury's talks. He built this testing suite, Jepsen, which verifies data stores and checks them for consistency guarantees, data loss, split brain, dirty reads, ... Oh and [this talk](https://www.youtube.com/watch?v=tRc0O9VgzB0) includes zings like “Turns out the write ahead log wasn’t write ahead.” If you're not fluent in this terminology, I can highly recommend [Martin Kleppmann's book](http://dataintensive.net/).
 - A great talk by the creator of Node.js. [What he regrets and what he’d do differently.](https://youtu.be/M3BM9TB-8yA)
 
 ---
@@ -1171,13 +1436,6 @@ I teach Python and I often struggle when explaining decorators, [this talk](http
 
 kafka definitive guide
 
-------------------------
-
-title: Careful about pandas
-
-https://www.youtube.com/watch?list=PLGVZCDnMOq0oqs6RTJk4zZde86DZrgnzm&v=_-gJtO0XR48
-
-------------------------
 
 ------------------------
 
@@ -1303,7 +1561,6 @@ title: Technical papers #2
 
 "I want more!" I hear you say. Here are three more papers, which are more recent, but have gained some traction already.
 
-1. Firecracker - isolation is not just about Docker, because security and performance are two major areas of research in container isolation. Firecracker is an OSS offering from Amazon, which they already use in Lambda and the main ruse is that it allows for extremely low latency and low utilisation of resources. https://www.amazon.science/publications/firecracker-lightweight-virtualization-for-serverless-applications
 2. Millions of tiny databases - Amazon runs exabytes of storage for their customers and it turns out that running replicated storage reliably is quite hard and it calls for unorthodox solutions. https://assets.amazon.science/c4/11/de2606884b63bf4d95190a3c2390/millions-of-tiny-databases.pdf
 3. The Network is Reliable - we sometimes take things for granted - things like the network or disk availability. This paper's co-author, Kyle Kingsbury, is known for stress testing distributed systems and finding major faults in their consistency guarantees. He publishes great papers himself, has really interesting talks on YouTube and really does offer great content. https://queue.acm.org/detail.cfm?id=2655736
 
@@ -1378,11 +1635,7 @@ https://www.youtube.com/watch?v=JfjiFsJsO4E
 
 ------------------------
 
-------------------------
 
-https://www.youtube.com/watch?v=UmDeKDgFRj4&feature=share
-
-------------------------
 
 ------------------------
 
@@ -1405,35 +1658,12 @@ Who teaches teachers? Kate grgory
 
 ------------------------
 
-title: Dear new devs
-
-Code style, linters, 80 chars, CR, auto linters
-
-------------------------
-
-------------------------
-
 https://www.youtube.com/watch?v=qmh7Uppd3x0&feature=share
 
 I learned something new, as always
 
 ------------------------
 
-------------------------
-
-Compiler Explorer: Behind the Scenes - always a pleasure listening to Matt Godbolt's talks.
-
-https://www.youtube.com/watch?v=kIoZDUd5DKw
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=UtjoaTfbdcA&feature=share
-
-------------------------
-
-------------------------
 
 
 I tend to think of the electronic world as purely digital, so it was rather refreshing to listen to [this podcast episode](https://hanselminutes.com/652/analog-computing-and-the-computer-of-the-tides-with-charles-petzold) on analog computers. Hanselminutes in general covers these fringe-sounding topics, I love it.
@@ -1444,7 +1674,6 @@ http://veekaybee.github.io/2019/05/10/java8/
 
 > That is, machine learning doesn't have to match experts or decades of experience or judgement. We’re not automating experts. Rather, we’re asking ‘listen to all the phone calls and find the angry ones’. ‘Read all the emails and find the anxious ones’. ‘Look at a hundred thousand photos and find the cool (or at least weird) people’. 
 
-A very nice and clear explanation of [how maps are implemented in Go](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics).
 
 [Here's an excellent PSA.](https://twitter.com/brendandburns/status/1007350396078075904)
 
@@ -1478,20 +1707,6 @@ https://www.youtube.com/watch?v=NF0CY43GYKU&feature=share
 
 ------------------------
 
-------------------------
-
-https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share
-
-
-------------------------
-
-https://www.youtube.com/watch?v=H62hZJVqs2o&feature=share
-
-This is why I love Strange Loop. This is “a guy” talking about the Voyager probes and why they managed 40+ years of uptime. 
-
-------------------------
-
-------------------------
 
 title: Quic
 
@@ -1529,93 +1744,12 @@ etc.
 
 ------------------------
 
-------------------------
-
-------------------------
-
-title: Dear new developers
-
-not about linked lists, but about collaboration, jargon and workflows
-
-TDD, red green refactor
-Yak shaving
-Coverage
-Code reviews
-Understanding jokes - naming things, off by one, cache invalidation, xkcd (compiling), testing in production
-DRY
-Big O
-FOMO
-HN
-TDD
-SPA
-CAP
-
-floats vs decimals (and integers) - not just in databases, this is useful in general, two's complement as well
-
-paralelisation primitives - threading, lock/mutex contention, ...? amdahls law
-
-bytes and binary
-
-Early exits
-
-somebody files a bug with your tiny library - you may be urged to fix it right away, but first file a test, run the suite, confirm it's red - then fix it and rerun the suite - you've now not only fixed it, but you're also safeguarded against a regression - somebody might refactor your code and it might exhibit this bug again
-   **bug reports should in most cases result in new tests**
-
-Git and VCS in general, git vs github
-
-Together with jokes put into a category of jargon/beer topics/...
-Tabs, spaces
-Vim, emacs
-
-package managers
-
-CPU cache?
-https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
-
------
 
 
 ------------------------
 
-title: Jak se vzdelavam
-
-Datanews mail digesty
-HN dvakrat denne
-Pocket
-Podcasty
-Oreilly knihy
-RSS
-
-------------------------
-
-------------------------
-
-title: Postgres is great
-
-And I did learn something - RETURNING within a CTE looks cool.
-
-I'd recommend everyone to use window functions and generate_series though.
-
-https://www.youtube.com/watch?v=HWfxUvW1ejw
-
-------------------------
 
 
-------------------------
-
-https://www.youtube.com/watch?v=KqTySYYhPUE&feature=share
-
-There is lots of infrastructure needed for reproducible and safe builds in an OSS world. Here’s Go’s solution. 
-
-------------------------
-
-------------------------
-
-title: Shuffling
-
-https://twitter.com/pndrej/status/1225136041553776640?s=21
-
-------------------------
 
 ------------------------
 
@@ -1625,15 +1759,7 @@ https://www.youtube.com/watch?v=jvwfDdgg93E&feature=share
 
 
 
-------------------------
 
-title: ongoing by Tim Bray · On Sharding
-
-https://www.tbray.org/ongoing/When/201x/2019/09/25/On-Sharding
-
-Sharding is hard
-
-------------------------
 
 
 
@@ -1645,17 +1771,6 @@ Accessibility is rather important and it doesn't take a PhD to do at least some 
 
 ------------------------
 
-------------------------
-
-https://www.youtube.com/watch?v=MYucYon2-lk&feature=share
-
-------------------------
-
-------------------------
-
-https://t.co/osOPUAApIc?ssr=true
-
-------------------------
 
 ------------------------
 
@@ -1673,37 +1788,6 @@ This is a pretty nice tool for presenting POCs to non-technical users, in many w
 
 ------------------------
 
-------------------------
-
-title: pg 13
-
-Interesting things coming to postgres 12, further partitioning improvements, better JSON support, but mainly some internal changes that allow for pluggable storage, which is likely to be user-facing in pg13 https://www.youtube.com/watch?v=VMLl-t4H_KI
-
-------------------------
-
-------------------------
-
-https://twitter.com/pndrej/status/1250319061440802817?s=12
-
-------------------------
-
-------------------------
-
-title: Initial thoughts on Spark
-
-scales better than pandas, that's great
-api changes dramatically and fast - hard to adapt
-learning scala is painful - seems like learning lua for torch - luckily PySpark is very good and outside rdd, the performance is great
-lazy evaluation is fine, but it's hard to debug
-locally, it's much slower
-predicate pushdown is fantastic, but drill has that too
-stack traces by default? I want normal logging
-single-node setup is a breeze, unlike presto and other big data solutions
- too many ways you can do stuff - select a dataframe column in eight different ways
-
-------------------------
-
-------------------------
 
 https://www.youtube.com/watch?v=XelrzDtEnPY&feature=share
 
@@ -1711,57 +1795,9 @@ Dealing with dimensionality in an interesting way
 
 ------------------------
 
-------------------------
 
-title: TDD where did it go wrong
 
-------------------------
 
-------------------------
-
-title: Initial reactions to Rust
-
-Bryan Cantrill got me hooked (link?)
-  He r commends learning the language, not writing code, might be a food idea
-
-Better std::collections
-i128
-generics (they require tooling for quality intellisense, vs code is failing me)
-better optimisation (llvm)
-similarly bad ecosystem as go
-generally better performant libraries (csv)
-interesting error handling
-better than go: iterators <3 hashsets <3
-
-march native
-
-the compiler is very helpful in telling you what you did wrong (of which you'll do a lot)
-it moves way too fast for my liking - much faster than go
-
-the docs are quite elaborate, but also confusing (e.g. the function signatures)
-
-hashmap.entry(line.clone()).or_insert(1);
-   SOO NICE, just like python
-
-accumulators etc.
-
-mutable strings - in go I have zero control over allocations when creating 
-
-strings (they are omitted in some map accesses though)
-
-Incl str!!!
-
-BUUUUT, it's super complex and moves fast
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=-WDV0-OB4fE&feature=share
-
-Well paced explanation of setup.py and pypi
-
-------------------------
 
 https://www.youtube.com/watch?v=HVLPJnvInzM&feature=share
 
@@ -1771,13 +1807,7 @@ Plumbing is important. Plumbing is difficult.
 
 
 
-------------------------
 
-https://www.youtube.com/watch?v=BuE6JvQE_CY&feature=share
-
-Luckily the answer is not quite. 
-
-------------------------
 
 ------------------------
 
@@ -1787,21 +1817,7 @@ A great overview of ethical issues in software. Facebook, Tesla, Uber, Boeing, .
 
 ------------------------
 
-------------------------
 
-title: The Skills Poor Programmers Lack
-
-https://justinmeiners.github.io/the-skills-programmers-lack/
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share
-
-Wheels are still magic, but less so
-
-------------------------
 
 
 
@@ -1820,92 +1836,17 @@ ctrl z + fg
 
 ------------------------
 
-------------------------
-
-title: Writing system software: code comments. - <antirez>
-
-http://antirez.com/news/124
-
-------------------------
-
-------------------------
-
-title: map reduce paper
-
-the map reduce paper is super easy to read and there are tons of things I like about it
-- it's driven by a real need (compute a lot of stuff)
-- it uses commodity hardware, which later enabled thousands of developers worldwide to leverage the methodology
-- they describe a system of backup tasks that fix the issue of outliers taking ages to complete
-- they focus on the fact that the system allows for a much simplified computing model - people without the knowledge of distributed computing can write massively paralelised workloads - in a way it's similar to SQL
-
-https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share
-
-I teach python, but its quite hard for me to explain decorators - this is angood one
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=1jD7dBsg_Nw&feature=share
-
-Gone are the days where we’d tell the server about encoding, mime types and compression. There are tons of things you can convey these days. 
-
-------------------------
-
-
-
-------------------------
-
-title: Radiolab bit flip
-
-------------------------
 
 ------------------------
 
 title: harmonogram
 
-- tidbits - git clone && (c)loc
-- treating file IO as a stream of lines (python, node chunk splitting)
-- Data isnt oil
-- Forgot unit tests? Grep your code!
-- joys of sql - it's all the same (mostly), you can do so on files as well (drill) etc. You may need more flexibility (frames), but the schema definition is here to stay - nodal isn't about schema less (that's useless), it's about more complex structures (think normalisation). But nowadays, it's okay to denormalise everything.
-- Balancing dependencies and NIH
-- cloning th world - npm install && ls -l node_modules | wc -l; (c)loc node_modules etc. - connected to "will my code run in five years" 
  - "but the amount of brain bandwidth and dependencies to launch a modern web app is getting a bit absurd"  https://news.ycombinator.com/item?id=15380479
-- captured by IT - nobody knows what IT does, so you can pretend it takes you too long
 - Add to jupy tunneling https://t.co/r36imBuGAH?ssr=true
 - open source is awesome https://github.com/golang/go/issues/20427
 - https://news.ycombinator.com/item?id=15849662
-- apache lucene love story - lucent then and now; whats in an index anyway - Lucene powered	Twitter	Wikipedia	iTunes StoreSomewhat like SQLite in terms of adoption
-- will my code run in 5 years - testing and vendoring
 - hash-based file store has one more disadvantage - no sequential scans or range queries, because keys are random
 - hide jupyter visibility (block incoming 8888 from outer internets) for more security - against port scanning
 - apache drill - ansi sql, can be embedded, has a clean UI, has jdbc, schema on read... what's not to love?
-- https://www.confluent.io/blog/messaging-single-source-truth/
-- nifty progress bar in python - print('foo %d', end='\r') - works in jupyter too
-- Survivorship bias - reading hacker news
-- extracting data from commoncrawl using only python
-- I royally screwed up when editing a single conf file in zeppelin - and now it's for all to see
-- Pandas tips - normalize (value counts, crosstab), df.score.round(1).value-counts/crosstab
-- slow and steady OSS - airflow wrong documentation - just ping them on gitter
-- performance/technical debt is not about prime number generation - story about Lepik presenting PHP as not technical debt, because it's fast now (7) - but it's not about speed in one benchmark (also Julia suffers from this) - it's about developer's performance
-- pythonistas should use go as well - pycon talk
-- Shove it up your saas
-- Namedtuples are the shiiit
 - explainable ML - http://multithreaded.stitchfix.com/blog/2017/10/18/stop-using-word2vec/
 - models can be explainable! a great explanation of how they created explanations for random forests (https://www.youtube.com/watch?v=DiWkKqZChF0) - their collegaues previously talked about implementing these models at scale https://www.youtube.com/watch?v=vKU8MWORHP8
-- Sharing gmail accounts - logs search histoey!!!
-
-
-- https://remusao.github.io/posts/2017-10-21-few-tips-sqlite-perf.html
-- IO as readers and writers, not filenames - testing, mocking, data from db or cache instead of files
-- joy of programming (go, learning about allocation and strucutres)
-- joy of not programming (sql, clang, smarter people know how to optimise my code that runs)
-- treating network body as a stream of bytes and how libraries often hide that (and make your program slow and memory heavy)
-
