@@ -567,6 +567,49 @@ https://justinmeiners.github.io/the-skills-programmers-lack/
 
 ------------------------
 
+### debugging
+
+tmux synchronised panes
+https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
+
+
+### legacy software
+
+- With Python 2 about to be deprecated, there are a few talks about migration to Python 3. There's Facebook's take [from PyCon 2018](https://youtu.be/H4SS9yVWJYA) and Instagram's [from PyCon 2017](https://www.youtube.com/watch?v=66XoCk79kjM). Oh and the most recent now - how [Pinterest did the same](https://www.youtube.com/watch?v=e1vqfBEAkNA&feature=share) - it's a bit more about the code differences rather than how they actually migrated.
+
+
+
+------------------------
+
+title: Lessons from 6 software rewrite stories
+
+https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22
+
+------------------------
+
+- Rewriting software always leads to broken deadlines, new bugs everywhere, reinventing the wheels etc. I've done this a few times and it was always the same. Here's [a good overview of how a lot larger rewrites turned out](https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22).
+
+
+------------------------
+
+title: Lessons learned from rewriting code in my 10+ years as a developer – Huseyin Polat Yuruk
+
+http://huseyinpolatyuruk.com/2019/02/04/lessons-learned-from-rewriting-code-in-my-10-years-as-a-developer/
+
+Dear new devs - rewriting
+
+------------------------
+
+------------------------
+
+title: Legacy code is a pain in the ass, but I somehow like it
+
+This is a great overview of tips and tricks
+
+https://www.youtube.com/watch?v=YsMUlNGF1no
+
+------------------------
+
 
 ### data
 
@@ -1163,48 +1206,6 @@ I don’t watch too many soft skill talks, perhaps I should. This was a really c
 https://www.youtube.com/watch?v=INr31JkHlT0&feature=emb_logo
 
 
-### debugging
-
-tmux synchronised panes
-https://www.youtube.com/watch?v=BMn0nSpeITY&feature=emb_logo
-
-
-### legacy software
-
-- With Python 2 about to be deprecated, there are a few talks about migration to Python 3. There's Facebook's take [from PyCon 2018](https://youtu.be/H4SS9yVWJYA) and Instagram's [from PyCon 2017](https://www.youtube.com/watch?v=66XoCk79kjM). Oh and the most recent now - how [Pinterest did the same](https://www.youtube.com/watch?v=e1vqfBEAkNA&feature=share) - it's a bit more about the code differences rather than how they actually migrated.
-
-
-
-------------------------
-
-title: Lessons from 6 software rewrite stories
-
-https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22
-
-------------------------
-
-- Rewriting software always leads to broken deadlines, new bugs everywhere, reinventing the wheels etc. I've done this a few times and it was always the same. Here's [a good overview of how a lot larger rewrites turned out](https://medium.com/@herbcaudill/lessons-from-6-software-rewrite-stories-635e4c8f7c22).
-
-
-------------------------
-
-title: Lessons learned from rewriting code in my 10+ years as a developer – Huseyin Polat Yuruk
-
-http://huseyinpolatyuruk.com/2019/02/04/lessons-learned-from-rewriting-code-in-my-10-years-as-a-developer/
-
-Dear new devs - rewriting
-
-------------------------
-
-------------------------
-
-title: Legacy code is a pain in the ass, but I somehow like it
-
-This is a great overview of tips and tricks
-
-https://www.youtube.com/watch?v=YsMUlNGF1no
-
-------------------------
 
 
 ### public speaking
@@ -1226,6 +1227,9 @@ chandler carruth
 
 https://www.youtube.com/watch?v=Mz3JeYfBTcY&feature=share
 
+### productivity
+
+gtd basics, working from home
 
 ### biz
 
