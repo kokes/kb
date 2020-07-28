@@ -1,66 +1,34 @@
-## development
+# My personal knowledge base
 
-### perf
+## Development
 
-- Instructions can be essentially free [if you're waiting for your memory to catch up](https://www.youtube.com/watch?v=jEG4Qyo_4Bc&feature=share). Here's [a bit of a deep dive](https://www.youtube.com/watch?v=BP6NxVxDQIs) from a past CppCon. And [here's how you measure it](https://www.youtube.com/watch?v=nXaxk27zwlk&feature=youtu.be), by Chandler Carruth, one of my favourite speakers.
+### Performance
 
+- Instructions can be essentially free if you're waiting for your memory to catch up
+  - [dotGo 2016 - Damian Gryski - Slices: Performance through cache-friendliness](https://www.youtube.com/watch?v=jEG4Qyo_4Bc&feature=share)
+  - [CppCon 2016: Timur Doumler “Want fast C++? Know your hardware!"](https://www.youtube.com/watch?v=BP6NxVxDQIs)
+  - [CppCon 2015: Chandler Carruth "Tuning C++: Benchmarks, and CPUs, and Compilers! Oh My!"](https://www.youtube.com/watch?v=nXaxk27zwlk&feature=youtu.be)
+- Catching pandas performance regressions using snakeviz (~flamegraph) and a line profiler
+  - [Maintaing Performance by Tom Augspurger](https://tomaugspurger.github.io/maintaing-performance.html)
+- A user name length can change performance (and other random perf bits). A super fun talk.
+  - ["Performance Matters" by Emery Berger](https://www.youtube.com/watch?v=r-TLSBdHe1A&feature=share)
+- [CppCon 2019: Chandler Carruth “There Are No Zero-cost Abstractions”](https://www.youtube.com/watch?v=rHIkrotSwcc&feature=share)
+- This is a classic. [Why is GNU grep so fast?](https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html) It does very little work and it does this to as few bytes as possible. These advice apply to a much wider number of situations.
+- Measure everything, things can be counter intuitive. Really cool simple demos on perf tracking. [GothamGo 2019 – "Slice Recycling Performance and Pitfalls" by David Golden](https://www.youtube.com/watch?v=x_qxkhK1Kgw&feature=share)
 
-https://twitter.com/pndrej/status/1247620953900748802?s=12
+- Two topics here. First, various crazy optimisations compilers can do for you these days (e.g. detect you're implementing POPCNT), second, infrastructure behind the de-facto standard Godbolt tool (it's actually called Compiler Explorer, who knew?) - how it handles security, caching, deployment etc..
+  - [CppCon 2017: Matt Godbolt “What Has My Compiler Done for Me Lately? Unbolting the Compiler's Lid”](https://www.youtube.com/watch?v=bSkpMdDe4g4&feature=youtu.be&t=2852)
 
-------------------------
-
-https://www.youtube.com/watch?v=r-TLSBdHe1A&feature=share
-
-A super fun talk about performance trickiness from an angle I havent known about. Like... user name can change performance. 
-
-------------------------
-
-------------------------
-
-https://www.youtube.com/watch?v=rHIkrotSwcc&feature=share
-
-There are no zero cost abstractions
-
-------------------------
-
-
-- This is a classic. [Why is GNU grep so fast?](https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html) It does very little and it does this to as few bytes as possible. These advice apply to a much wider number of situations.
+- Assembly gets used in Go in places where performance is deemed more important than maintainability and other niceties. 
+  - [Michael McLoughlin's Geohash in Golang Assembly](https://mmcloughlin.com/posts/geohash-assembly) goes in depth in this topic, describing in detail how and why to implement an assembly-powered implementation of a simple-ish algorithm.
+  - [dotGo 2019 - Michael McLoughlin - Better x86 Assembly Generation with Go](https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share) - assembly is hard to get right, having higher level tools that allow you to generate it instead seems super helpful. You still need to know what you're doing, but you have fewer opportunities to shoot yourself in the foot.
 
 
-
-------------------------
-
-https://www.youtube.com/watch?v=x_qxkhK1Kgw&feature=share
-
-Measure everything. Really cool simple demos on perf tracking. 
 
 ------------------------
 
 george tank youtube talks
 
-- Matt Godbolt is another of my favourite speakers, here's [a talk mostly about compilers](https://youtu.be/bSkpMdDe4g4?t=2852), but also about his super popular site, [Compiler Explorer](https://godbolt.org/), how it works, what resources it needs (it seems ridiculously efficient), how it does isolation, security etc.
-
-------------------------
-
-https://www.youtube.com/watch?v=jEG4Qyo_4Bc&feature=share
-
-Instructions can be free if youre waiting for memory
-
-https://www.youtube.com/watch?v=BP6NxVxDQIs&list=WL&index=13&t=0s
-
-https://youtu.be/nXaxk27zwlk - here is how to measure it
-
-------------------------
-
-------------------------
-
-title: Geohash in Golang Assembly: Lessons in absurd optimization:
-
-https://mmcloughlin.com/posts/geohash-assembly
-
-------------------------
-
-- Writing assembly is tough, I'd never go that road. But I've just found out that even people proficient in assembly use tooling that helps build it. There's a Python tool and a Go tool, [here's a good introduction](https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share). The speaker also has a fun post about [absurd optimisations](https://mmcloughlin.com/posts/geohash-assembly).
 
 ------------------------
 
