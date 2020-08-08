@@ -1,5 +1,9 @@
 # My personal knowledge base
 
+This is a collection of articles, talks, books, and other resources I've come across over the years. The vast majority should be stuff I actually read or watched, it's not just a bookmarking service.
+
+This document is very much a work in progress, most of my links are still to be added. At one point I'll probably split it into multiple documents.
+
 ## Development
 
 ### Performance
