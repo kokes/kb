@@ -26,3 +26,28 @@ This document is very much a work in progress, most of my links are still to be 
 - Assembly gets used in Go in places where performance is deemed more important than maintainability and other niceties. 
   - [Michael McLoughlin's Geohash in Golang Assembly](https://mmcloughlin.com/posts/geohash-assembly) goes in depth in this topic, describing in detail how and why to implement an assembly-powered implementation of a simple-ish algorithm.
   - [dotGo 2019 - Michael McLoughlin - Better x86 Assembly Generation with Go](https://www.youtube.com/watch?v=6Y5CZ7_tyA4&feature=share) - assembly is hard to get right, having higher level tools that allow you to generate it instead seems super helpful. You still need to know what you're doing, but you have fewer opportunities to shoot yourself in the foot.
+
+
+### Languages
+
+#### C/C++
+I've only written tiny bits of C++ and I was quite surprised how it differs from the C/C++ code I saw years and years ago. And here's [Kate Gregory talking](https://www.youtube.com/watch?v=YnWhqhNdYyk&feature=share) about how modern C++ should be taught as exactly that, modern C++.
+
+#### Python
+
+Python wheels are still magic to me, but they are a tiny bit less magic now, [thanks to this PyCon talk](https://www.youtube.com/watch?v=02aAZ8u3wEQ&feature=share).
+
+There's a walrus operator coming in Python 3.8. Do you not know? [Here's not only what it is](https://www.youtube.com/watch?v=6uAvHOKofws&feature=share), but also a reminder that we should be nice to other people on the internet, and what's changing in terms of Python governance.
+
+
+I teach Python and I often struggle when explaining decorators, [this talk](https://www.youtube.com/watch?v=MjHpMCIvwsY&feature=share) is a great overview of not just what they are, but also *why* they work.
+
+[A well paced talk](https://www.youtube.com/watch?v=-WDV0-OB4fE&feature=share) on setup.py and PyPI.
+
+I knew that CPython can efficiently concatenate strings, despite their immutability. I never knew why, thanks for this explanation. https://blog.ganssle.io/articles/2019/11/string-concat.html
+
+Raymond Hettinger is a core Python developer, he's quite known for being a great speaker and educator. Here's [a talk on Python dictionaries](https://www.youtube.com/watch?v=p33CVV29OG8), how they came up to be, how their implementation changed over the years and what it means for their users.
+
+Raise your hand if you only use IPython for syntax highlighting, easier help dialog, and multiline support. Turns out [it has a lot more features](https://youtu.be/3i6db5zX3Rw).
+
+Mypy [has generics and interfaces](https://www.youtube.com/watch?v=UQo-ebJk4a4).
