@@ -103,3 +103,46 @@ This short talk on CRDTs is not only good in terms of explaining the basics of c
 
 
 Locks and how to avoid their performance penalties. [A great talk by Kavya Joshi](https://www.youtube.com/watch?v=tjpncm3xTTc).
+
+#### Parallelism
+
+This is a nice and concise overview of parallel computing primitives in Python. Be it processes, threads, workers or coroutines. https://youtu.be/0RaotdCa_j0
+
+Raft - how does one achieve consensus across a distributed system? Where do we keep the truth and how do we handle failures? Paxos used to be the answer, but it's a notoriously hard problem and this implementation was quite difficult to work with. Raft is a newer and simpler solution to this coordination problem and it's widely used in distributed systems. https://raft.github.io/raft.pdf
+
+Multiprocessing is scary, here are some great tips on how not to go crazy
+https://www.youtube.com/watch?v=5dMOYf0b_20
+
+
+#### software development
+
+It's been a while since I needed gdb, but it's good to see I used maybe half a percent of its functionality. https://www.youtube.com/watch?v=PorfLSr3DDI&feature=share
+
+
+Code reviews are essential, but that doesn't mean we have to do PEP8 and other code quality checks by hand. [Automate these away as much as possible.](https://www.youtube.com/watch?v=G1lDk_WKXvY)
+
+Dependency management is hard. Here are [a few notes from the creator of pipenv](https://www.youtube.com/watch?v=GBQAKldqgZs). I'm still not entirely sold on pipenv, but it's a decent tool for the job.
+
+We need to learn from mistakes we or others have made. Here's a post on reading postmortems. https://danluu.com/postmortem-lessons/
+
+
+[Things I Learnt The Hard Way (in 30 Years of Software Development)](https://blog.juliobiason.net/thoughts/things-i-learnt-the-hard-way/)
+
+
+[Crash early and crash often for more reliable software](https://medium.com/@mattklein123/crash-early-and-crash-often-for-more-reliable-software-597738dd21c5)
+
+I expected a dry talk on code reviews and it ended up being [a really nice overview of culture, soft skills, helping newcomers, dealing with anxiety, GTD etc](https://youtu.be/iNG1a--SIlk).
+
+
+Forget PEP8, version control, reviews or tests. No bash, subprocess run all the things, just good old sloppy code that *solves your problem*. [Super fast and excellent](https://www.youtube.com/watch?v=Jd8ulMb6_ls).
+
+
+TDD has become almost a religion. Here's a great talk on [where it all went wrong](https://www.youtube.com/watch?v=EZ05e7EMOLM). Ian Cooper covers the origins - like red-green-refactor - but also the bad practices we've come to adopt, the most prominent one being that we tend to test implementations rather than behaviour. Once you factor in your implementation details into your test, you've deviated from the original idea of TDD.
+
+
+I can highly recommend all of Kyle Kingsbury's talks. He built this testing suite, Jepsen, which verifies data stores and checks them for consistency guarantees, data loss, split brain, dirty reads, ... Oh and [this talk](https://www.youtube.com/watch?v=tRc0O9VgzB0) includes zings like “Turns out the write ahead log wasn’t write ahead.” If you're not fluent in this terminology, I can highly recommend [Martin Kleppmann's book](http://dataintensive.net/).
+
+
+[Writing system software: code comments](http://antirez.com/news/124)
+
+[The Skills Poor Programmers Lack](https://justinmeiners.github.io/the-skills-programmers-lack/)
