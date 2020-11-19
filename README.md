@@ -51,3 +51,19 @@ Raymond Hettinger is a core Python developer, he's quite known for being a great
 Raise your hand if you only use IPython for syntax highlighting, easier help dialog, and multiline support. Turns out [it has a lot more features](https://youtu.be/3i6db5zX3Rw).
 
 Mypy [has generics and interfaces](https://www.youtube.com/watch?v=UQo-ebJk4a4).
+
+#### Go
+
+It’s a bit annoying that Go can’t mock, so you have to do all this [interface kungfu](https://www.youtube.com/watch?v=_NKQX-TdNMc&feature=share). But at least it’s more explicit.
+
+A very nice and clear explanation of [how maps are implemented in Go](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics).
+
+A frustrating thing about inlining in Go is that there's a fairly arbitrary cost model and you sometimes end up fighting it (lookup George Tankersley's talks on YouTube). There have been tons of discussions about whether or not it should be user configurable, if inlining hints should happen at the call sites or function definitions etc. It's quite a nice discussion that helps people understand the toolchain. It also goes to show that while a self hosted build system is nice, you forgo decades of gcc/llvm optimisations. https://github.com/golang/go/issues/17566
+
+#### JavaScript
+
+- A great talk by the creator of Node.js. [What he regrets and what he’d do differently.](https://youtu.be/M3BM9TB-8yA)
+
+#### WebAssembly
+
+I've been following the developments of WebAssembly a bit over the past few years, but I haven't seen such a convincing and clear explanation as to why it's a big deal. This is a great presentation in terms of clarity, content, and form. Thanks, @callahad. https://www.youtube.com/watch?v=TGo3vJVTlyQ
