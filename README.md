@@ -67,3 +67,26 @@ A frustrating thing about inlining in Go is that there's a fairly arbitrary cost
 #### WebAssembly
 
 I've been following the developments of WebAssembly a bit over the past few years, but I haven't seen such a convincing and clear explanation as to why it's a big deal. This is a great presentation in terms of clarity, content, and form. Thanks, @callahad. https://www.youtube.com/watch?v=TGo3vJVTlyQ
+
+### Internals
+
+#### Architecture
+
+I love to listen to data architecture descriptions and I love it ever more when the bottom line is: we just use Postgres (usually heavily partitioned). There are a few podcast episodes on these, there's [Outlier](https://softwareengineeringdaily.com/2018/06/29/data-engineering-automation-with-mike-kim/), [Pex](https://softwareengineeringdaily.com/2018/06/22/video-search-with-rasty-turek/) or [Heap](https://www.dataengineeringpodcast.com/heap-with-dan-robinson-episode-36/).
+
+
+Firecracker - isolation is not just about Docker, because security and performance are two major areas of research in container isolation. Firecracker is an OSS offering from Amazon, which they already use in Lambda and the main ruse is that it allows for extremely low latency and low utilisation of resources. https://www.amazon.science/publications/firecracker-lightweight-virtualization-for-serverless-applications
+
+A periodic reminder that [You are not Google](https://blog.bradfieldcs.com/you-are-not-google-84912cf44afb).
+
+
+A nice overview of how Tailscale works. Reminds me of using Hamachi back in the day, worked like magic. https://tailscale.com/blog/how-tailscale-works/
+
+
+The Amazon Builders’ Library is a nice resource, I hope they add more content over time. Here’s a bit of it [in video form](https://www.youtube.com/watch?v=sKRdemSirDM&feature=emb_logo) (I liked the shuffle sharding explanation). It has text form, but I only watched this.
+
+It's not all just about velocity, features and such, it's also about good design. [Here's a Google talk](https://www.youtube.com/watch?v=bmSAYlu0NcY&feature=share) by John Ousterhout about that very topic. He also [has a new book about that](https://twitter.com/johnousterhout/status/989260683836506112?lang=en), it's decent but fairly high level.
+
+“One of the main skills you need to have is evaluating new technology.” https://youtu.be/d5bNZX8tpiI
+
+[PID loops at AWS](https://www.youtube.com/watch?v=3AxSwCC7I4s&feature=share) and other fun stuff. Never knew this whole area even existed.
