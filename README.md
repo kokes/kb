@@ -90,3 +90,16 @@ It's not all just about velocity, features and such, it's also about good design
 “One of the main skills you need to have is evaluating new technology.” https://youtu.be/d5bNZX8tpiI
 
 [PID loops at AWS](https://www.youtube.com/watch?v=3AxSwCC7I4s&feature=share) and other fun stuff. Never knew this whole area even existed.
+
+#### Data structures
+
+There are tons of interesting data structures and algorithms, Nicholas Ormrod covers a few of them in [this great CppCon talk](https://www.youtube.com/watch?v=YA-nB2wjVcI). I highly recommend the last part where he talks about [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), an algorithm which is very close to magic. Oh and I also gave a talk on HyperLogLog and similar algorithms [at PyData Amsterdam](https://www.youtube.com/watch?v=8Ean3Bx_o_M).
+
+Being a big fan of Bloom filters, I really enjoyed this paper on Cuckoo filters. They are better in many ways, one only has to be careful about insertion performance at high occupancy. https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf
+
+I dislike all things Java/JVM, but I'm always astonished at Elasticsearch's performance. [In this video](https://www.youtube.com/watch?v=eQ-rXP-D80U&feature=share), Adrien Grand describes at length what sort of data structures and algorithms are used in Elasticsearch and Lucene.
+
+This short talk on CRDTs is not only good in terms of explaining the basics of conflict free data structures, but the speaker also highlights good UX in data applications, something that is grossly overlooked. https://www.youtube.com/watch?v=DEcwa68f-jY
+
+
+Locks and how to avoid their performance penalties. [A great talk by Kavya Joshi](https://www.youtube.com/watch?v=tjpncm3xTTc).
