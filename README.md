@@ -114,7 +114,7 @@ Multiprocessing is scary, here are some great tips on how not to go crazy
 https://www.youtube.com/watch?v=5dMOYf0b_20
 
 
-#### software development
+#### Software development
 
 It's been a while since I needed gdb, but it's good to see I used maybe half a percent of its functionality. https://www.youtube.com/watch?v=PorfLSr3DDI&feature=share
 
@@ -161,3 +161,363 @@ Rewriting software always leads to broken deadlines, new bugs everywhere, reinve
 Lessons learned from rewriting code in my 10+ years as a developer http://huseyinpolatyuruk.com/2019/02/04/lessons-learned-from-rewriting-code-in-my-10-years-as-a-developer/
 
 Legacy code is a pain in the ass, but I somehow like it. This is a great overview of tips and tricks https://www.youtube.com/watch?v=YsMUlNGF1no
+
+
+### Data
+
+#### Architecture, engineering
+
+I've been looking forward to Kafka dropping ZooKeeper and always viewed the change as just swapping a part. Turns out there are good reasons other than simplifying deployment. This is [a good talk on that](https://www.youtube.com/watch?v=3qNNinbnWmw). There's also [an article](https://www.confluent.io/blog/removing-zookeeper-dependency-in-kafka/), [a Confluence doc](https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum), and [a JIRA ticket](https://issues.apache.org/jira/browse/KAFKA-9119).
+
+Millions of tiny databases - Amazon runs exabytes of storage for their customers and it turns out that running replicated storage reliably is quite hard and it calls for unorthodox solutions. [Paper](https://assets.amazon.science/c4/11/de2606884b63bf4d95190a3c2390/millions-of-tiny-databases.pdf)
+
+
+title: Transparent Hierarchical Storage Management with Apache Kudu and Impala
+
+https://blog.cloudera.com/blog/2019/03/transparent-hierarchical-storage-management-with-apache-kudu-and-impala/
+
+------------------------
+
+title: ongoing by Tim Bray · On Sharding
+
+https://www.tbray.org/ongoing/When/201x/2019/09/25/On-Sharding
+
+Sharding is hard
+
+------------------------
+
+https://www.youtube.com/watch?v=BuE6JvQE_CY&feature=share
+
+Luckily the answer is not quite. 
+
+law of headlines
+
+------------------------
+
+title: map reduce paper
+
+the map reduce paper is super easy to read and there are tons of things I like about it
+- it's driven by a real need (compute a lot of stuff)
+- it uses commodity hardware, which later enabled thousands of developers worldwide to leverage the methodology
+- they describe a system of backup tasks that fix the issue of outliers taking ages to complete
+- they focus on the fact that the system allows for a much simplified computing model - people without the knowledge of distributed computing can write massively paralelised workloads - in a way it's similar to SQL
+
+https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
+
+------------------------
+
+Networks are problematic. Ever since reading Designing Data Intensive Applications, I’ve been more aware of this. This article, co-authored by Kyle Kingsbury of Jepsen, describes a whole host of network issues. https://dl.acm.org/doi/10.1145/2639988.2655736
+
+------------------------
+
+3. Kafka - message queues have a looong tradition in computer science, but they are usually thought of as ephemeral - messages come, get processed and get discarded. Kafka was the first major system where storing messages and replays were accounted for in its design. It created a whole new area of data processing, where the stream plays a more important role than storage (=database), because you can always recreate the latter from the former, but not vice versa. http://notes.stephenholiday.com/Kafka.pdf
+
+
+------------------------
+
+https://www.youtube.com/watch?v=1spKXX2W7Eo&feature=share
+
+Batch is operationally simpler than streaming. 
+
+Windowing is hard. 
+
+Stream to stream joins are hard. 
+
+The value in big data is democratization, not size or ML. 
+
+------------------------
+
+title: Delivering billions of messages exactly once
+
+https://segment.com/blog/exactly-once-delivery/
+
+------------------------
+
+title: Is Hadoop Dead?
+
+https://tech.marksblogg.com/is-hadoop-dead.html
+
+------------------------
+
+title: Metadata management in big data is a bitch
+
+Here's an open source offering from the We company. I feel like this space is underserved by quality software. The "standard" of Apache Atlas is super heavyweight, I'm not willing to have Kafka or HBase to store a few rows of data, no way.
+
+https://www.youtube.com/watch?v=dRaRKob-lRQ
+
+-----------------
+
+title: Common Data Engineering Mistakes
+
+New technology is not the key to success
+
+Distributed processing is difficult
+
+Engineering for imaginary scale problems
+
+https://www.youtube.com/watch?v=mv7PLnwzLpM
+
+----
+
+read-level deduplication, cool arch
+
+https://engineering.mixpanel.com/2019/07/18/petabyte-scale-data-deduplication/
+
+#### dataframes
+
+------------------------
+
+https://www.youtube.com/watch?v=HVLPJnvInzM&feature=share
+
+Plumbing is important. Plumbing is difficult. 
+
+-----------------
+
+title: Careful about pandas
+
+https://www.youtube.com/watch?list=PLGVZCDnMOq0oqs6RTJk4zZde86DZrgnzm&v=_-gJtO0XR48
+
+---------------------
+
+https://www.youtube.com/watch?v=2Tt0i823-ec&feature=share
+
+A super impressive live demo
+
+------------------------
+
+- One of the most cited issues with pandas has been its inability to contain integer series with nulls. This lack of support is caused by the treatment of nulls in series - pandas uses sentinel values rather than a separate bitarray. Here is [a good overview of what's changed recently](https://www.youtube.com/watch?v=gxvTVxlvH9w) by Jeff Reback, pandas' long time maintainer.
+
+------------------------
+
+title: pandas pipelines
+
+Ondrej Kokes:palm_tree: 4:51 PM
+It’s really painful to be working with Jupyter notebooks with hundreds of cells. Here’s a really really nice overview of pandas+Jupyter pipelines that allow you to create reproducible and easy to maintain pipelines with logging, all for the sake of maintainability. https://www.youtube.com/watch?v=yXGCKqo5cEY
+
+Ondrej Kokes:palm_tree:  13 minutes ago
+Much of the content is taken from these Modern Pandas tutorials, I can highly recommend them as supplementary reading. https://tomaugspurger.github.io/modern-1-intro.html
+
+tomaugspurger.github.io
+datas-frame – Modern Pandas (Part 1)
+Posts and writings by Tom Augspurger
+
+Ondrej Kokes:palm_tree:  12 minutes ago
+And if you don’t want to watch the talk nor read the posts, just checkout the Contextual Help feature (time 4:30 in the video). It’s a super useful addition to your Jupyter Lab flow.
+
+------------------------
+
+#### spark
+
+- If you working with Spark, chances are you've read something from Jacek Laskowski, he maintains [a few sites on the internals of Spark or Kafka](https://github.com/jaceklaskowski), these are really good resources relating to underdocumented pieces of code. One fairly recent addition to Spark is bucketing and Jacek [had a nice Spark Summit talk](https://www.youtube.com/watch?v=dv7IIYuQOXI) on the topic.
+
+
+------------------------
+
+title: Initial thoughts on Spark
+
+scales better than pandas, that's great
+api changes dramatically and fast - hard to adapt
+learning scala is painful - seems like learning lua for torch - luckily PySpark is very good and outside rdd, the performance is great
+lazy evaluation is fine, but it's hard to debug
+locally, it's much slower
+predicate pushdown is fantastic, but drill has that too
+stack traces by default? I want normal logging
+single-node setup is a breeze, unlike presto and other big data solutions
+ too many ways you can do stuff - select a dataframe column in eight different ways
+
+------------------------
+
+spark cannot write to s3 in v4 only regions
+    also, it cannot use aws by default
+
+                .config('fs.s3a.endpoint', 's3.eu-central-1.amazonaws.com')
+spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.4 --conf spark.{driver,executor}.extraJavaOptions='-Dcom.amazonaws.services.s3.enableV4' pipeline.py
+    note that this is only for hadoop2 (default on pypi)
+
+    https://kokes.github.io/blog/2020/06/22/apache-spark-pyspark-s3.html
+
+#### databases
+
+title: We learned this the hard way
+
+https://hakibenita.com/fast-load-data-python-postgresql
+
+
+------------------------
+
+title: pg 13
+
+Interesting things coming to postgres 12, further partitioning improvements, better JSON support, but mainly some internal changes that allow for pluggable storage, which is likely to be user-facing in pg13 https://www.youtube.com/watch?v=VMLl-t4H_KI
+
+------------------------
+
+I’m a sucker for database internals talks. Here’s a very clear talk about InfluxDB - memory layout, on disk serialisation, compression, hashing.
+
+https://www.youtube.com/watch?v=rtEalnKT25I&feature=emb_logo
+
+---------------------
+
+title: Postgres is great
+
+And I did learn something - RETURNING within a CTE looks cool.
+
+I'd recommend everyone to use window functions and generate_series though.
+
+https://www.youtube.com/watch?v=HWfxUvW1ejw
+
+------------------------
+
+https://remusao.github.io/posts/2017-10-21-few-tips-sqlite-perf.html
+
+------------------------
+
+title: dynamo paper
+
+The legendary Dynamo paper turns out to be a very dense piece of writing. Took me quite a while to parse it all, let alone understand at least some of it. https://allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
+
+There are a number of techniques they employ. I like the symmetric nodes thing, which allows for simpler scaling. Also, partitioning based on consistent hashing results in less network traffic when clusters resize.
+
+Tunable performance, availability and durability is a great thing that I'd welcome elsewhere - when I know I don't need consistency or integrity, let me write loads quickly, please. Kafka works sort of similar, since you can tune replication properties to change performance.
+
+I always thought the client library was just issuing API calls, but it turns out that in Dynamo, they not only do some conflict resolution, but also pull cluster topology to avoid relying on a load balancer, which leads to better latency.
+
+Last but not least - Dynamo is not just about DynamoDB, but about a set of principles to build distributed key-value stores. So it applies more broadly.
+
+Overall it's a good read, but it is fairly technical.
+
+------------------------
+
+
+------------------------
+
+title: useful reminder
+
+https://blog.jooq.org/2019/04/09/the-difference-between-sqls-join-on-clause-and-the-where-clause/
+
+------------------------
+
+https://www.youtube.com/watch?v=VMLl-t4H_KI&feature=share
+
+----
+
+- Postgres is my goto database and even after more than 20 years of development, there are new features introduced every year. The latest version, 11, is mostly focused around better partitioning and parallelisation. I liked two videos on it - Magnus Hagander [mostly focuses on features](https://www.youtube.com/watch?v=lgzXuFQ0Pbk), while Joe Conway [covers how development is done as well](https://www.youtube.com/watch?v=kPhs-wdrb58).
+
+https://www.youtube.com/watch?v=JWQVDKw1HVk&feature=share
+
+SQL statements don’t start with a select. Seems kinda obvious in retrospect, super clear and informative in any case.
+SQL queries don't start with SELECT
+Okay, obviously many SQL queries do start with SELECT (and actually this post is only about SELECT queries, not INSERTs or anything). But! Yesterday I was working on an explanation of window functi...
+jvns.ca
+
+------------------------
+
+title: Taking DuckDB for a spin
+
+https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html
+
+------------------------
+
+1. Dynamo paper - one that defined a hugely scalable key-value store, it talks about the topology of the system, how it achieves its level of consistency, scale etc. http://courses.cse.tamu.edu/caverlee/csce438/readings/dynamo-paper.pdf
+2. Bigtable - one of the first "NewSQL" systems - hugely scalable relational systems, usually of denormalised tables and using SQL. Since horizontal scale has been a long-standing issue with classical RDBMS, these NewSQL systems try to forgo some of the guarantees of RDBMS (e.g. foreign keys or transaction), but offer much better scale. https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
+
+6. Spanner - this scalable database by Google has one specific feature - it not only scales, but it does so while not sacrificing as much as Bigtable - it allows for transactions and other synchronisation principles, which are hard to implement in a distributed system. It does so using special kinds of clocks to keep time across geographies (it even uses GPS and other hardware help). It's amazing how you can keep track of time in these hugely unreliable systems and I can recommend one more talk on this topic (by Kavya Joshi, just search on youtube for her name + "clocks"). https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf
+
+------------------------
+
+title: modern sql
+
+It's all about the ethos - SQL is not about CRUD, it's about fairly advanced things.
+
+Markus Winand and his "you don't know SQL" presentation I always enjoy. He starts off with quite basic things, but always runs into weird features I haven't heard about.
+More Than a Query Language: SQL in the 21st Century by Markus Winand
+youtube.com
+Ondrej Kokes
+https://www.youtube.com/watch?v=MnEDHFOqqno
+·
+1s
+Like system versioning - I do it using triggers since Postgres doesn't support it natively, but it turns out, Postgres might be getting it soon! https://commitfest.postgresql.org/25/2316/
+
+---------------------
+
+title: postgres talks
+
+Some rather good Postgres talks - more about data management than querying
+
+indexing - what's out there apart from btree - https://www.youtube.com/watch?v=Xv0NFozBIbM
+
+jsonb, its usage and indexing - https://www.youtube.com/watch?v=p9RItyeKbLQ
+
+---------------------
+
+title: BigQuery ML
+
+A very good overview of how ML tools can be implemented in a massively scalable engine like BigQuery. https://www.youtube.com/watch?v=svQdwU3iPp8
+
+---------------------
+
+title: Advanced SQL - window frames – Michał Konarski
+
+https://mjk.space/advances-sql-window-frames/
+
+------------------------
+
+When we talk about testing, I usually think of unit tests, maybe some basic integration testing. FoundationDB's Will Wilson talks about [deterministic testing](https://www.youtube.com/watch?v=4fFDFbi3toc&feature=youtu.be) and it's quite an astonishing display of effort one needs to go through to thoroughly and reliably test a complex distributed system like FoundationDB. Oh and they don't stop at software!
+
+DynamoDB is amongst the better known NoSQL offerings, but being proprietary, we don't usually get to find out a lot about their architecture. Here, apart from [the Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf), there's a nice architectural overview [from last year's AWS re:Invent](https://www.youtube.com/watch?v=yvBR71D0nAQ&feature=share).
+
+title: Pg automatic indexes
+
+One of my favourite things about postgres is the amount of tooling it provides (first or third party). My all time favourite is pg_stat_statements, but this one is really cool as well: index recommendation.
+
+https://www.percona.com/blog/2019/07/22/automatic-index-recommendations-in-postgresql-using-pg_qualstats-and-hypopg/
+
+------------------------
+
+title: snowflake paper
+
+A nice paper on the architecture and evolution of Snowflake, a popular modern data warehousing solution using tiered storage, separating of compute and storage and other elastic parts.
+Building an elastic query engine on disaggregated storage
+Building an elastic query engine on disaggregated storage, Vuppalapati, NSDI’20 This paper describes the design decisions behind the Snowflake cloud-based data warehouse. As the saying goes, …
+blog.acolyer.org
+Ondrej Kokes
+@pndrej
+·
+9s
+I'm a big fan of tiered storage since, as the paper reiterates, blob storage is very cheap and extremely durable, it doesn't have the characteristics of a local disk, let alone memory, so they try to make use of each of the three for what they are meant to be used.
+Ondrej Kokes
+@pndrej
+·
+7s
+There are tons more things in the paper, be it scaling up and down, caring about utilisation of various resources, how consistent hashing works in situations of changing the number of nodes etc. etc.
+Ondrej Kokes
+@pndrej
+Last but not least - they use a big-ish dataset of query statistics from real world warehouses - and this dataset is published alongside the paper.
+
+---------------------
+
+title: 8 Major Improvements in PostgreSQL 12
+
+https://www.enterprisedb.com/blog/8-major-improvements-postgresql-12
+
+Cant wait to use pg12 - my fav is not mentioned though - generated columns
+
+------------------------
+
+#### text processing
+
+------------------------
+
+title: Fuzzy search
+
+Pretty cool to see major performance wins in text similarity algos. Useful for clustering, fuzzy joins etc. I really liked the letter bitmap stuff. https://youtu.be/s0YSKiFdj8Q
+
+------------------------
+
+#### machine learning
+
+- I'm not a huge fan of overhyped parts of ML/AI, so I welcomed [this sober post](https://www.ben-evans.com/benedictevans/2018/06/22/ways-to-think-about-machine-learning-8nefy).
+
+- Learned indexes sound a bit like magic. Instead of being explicitly set up like regular indexes, these are inferred from data and can perform better. But it's better explain by one of the authors, [Tim Kraska](https://www.youtube.com/watch?v=mkIHC7xMSRQ) or perhaps [by Robert Rodgers](https://www.youtube.com/watch?v=0q9mxMekBeE).
+
+- You don't have to have fancy math across all your slides, I much prefer clear talks with good examples. [Robert Rodger's talk on text summarisation](https://www.youtube.com/watch?v=VZ5BEKVxy9k) is just that. I actually saw this one live, it was great.
+
